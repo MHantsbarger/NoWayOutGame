@@ -12,12 +12,14 @@ public class PlayerController : MonoBehaviour
     public Text prompts;
     public Text FailText;
     private Rigidbody2D rb;
-    private Vector2 target;
+    private Vector3 target;
+    private Transform tr;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        target = new Vector2(-3.5f, -4.5f);
+        target = new Vector3(-3.5f, -4.5f);
+        tr = transform;
     }
 
     void Update()
@@ -74,29 +76,32 @@ public class PlayerController : MonoBehaviour
 
     void OnGUI()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) && tr.position == target)
         {
             var xPos = Mathf.Clamp(transform.position.x + 1, -4.5f, 4.5f);
             var yPos = transform.position.y;
             target = new Vector2(xPos, yPos);
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && tr.position == target)
         {
             var xPos = Mathf.Clamp(transform.position.x - 1, -4.5f, 4.5f);
             var yPos = transform.position.y;
             target = new Vector2(xPos, yPos);
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && tr.position == target)
         {
             var xPos = transform.position.x;
             var yPos = Mathf.Clamp(transform.position.y + 1, -4.5f, 4.5f);
             target = new Vector2(xPos, yPos);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) && tr.position == target)
         {
             var xPos = transform.position.x;
             var yPos = Mathf.Clamp(transform.position.y - 1, -4.5f, 4.5f);
             target = new Vector2(xPos, yPos);
         }
+
+
+        
     }
 }
