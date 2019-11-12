@@ -9,14 +9,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float speed = 10.0f;
 
-    public Text testText;
+    public Text prompts;
+    public Text FailText;
     private Rigidbody2D rb;
     private Vector2 target;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        target = new Vector2(-4.5f, -4.5f);
+        target = new Vector2(-3.5f, -4.5f);
     }
 
     void Update()
@@ -26,16 +27,49 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        rb.position = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
+        rb.MovePosition(Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime));
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "testItem")
+        GameObject item = other.gameObject;
+        if (item.CompareTag("Fog"))
         {
-            testText.text = "Test Text";
+            Destroy(item);
         }
+        if (item.CompareTag("Item"))
+        {
+            FailText.text = "Fail";
+        }
+        if (item.CompareTag("Traps"))
+        {   
+            if (prompts.text != " ")
+            {
+                prompts.text += "Trap" + "\n";
+            }
+            else
+            {
+                prompts.text = "Trap" + "\n";
+            }
+        }
+        if (item.CompareTag("Plants"))
+        {
+            if (prompts.text != " ")
+            {
+                prompts.text += "Flower" + "\n";
+            } 
+            else
+            {
+                prompts.text = "Flower" + "\n";
+            }
+        }
+
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        prompts.text = " ";
     }
 
     void OnGUI()

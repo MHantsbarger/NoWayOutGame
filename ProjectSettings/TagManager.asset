@@ -4,6 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Plants
+  - Traps
+  - Fog
   - Item
   layers:
   - Default
@@ -45,6 +48,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Character
+  - name: Item
     uniqueID: 2016283605
+    locked: 0
+  - name: Fog
+    uniqueID: 2694039477
+    locked: 0
+  - name: Player
+    uniqueID: 2098067161
     locked: 0
