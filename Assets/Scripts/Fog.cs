@@ -22,4 +22,13 @@ public class Fog : MonoBehaviour
             fogSpriteRenderer.color = foggy;
         }
     }
+
+    void OnGUI()
+    {
+        if (Input.GetKeyDown(KeyCode.Minus))
+        {
+            fogSpriteRenderer = GetComponent<SpriteRenderer>();
+            fogSpriteRenderer.color = transparent;
+        }
+    }
 }
