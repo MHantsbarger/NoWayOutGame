@@ -53,7 +53,7 @@ MonoBehaviour:
     min: 2
     max: 3
   home: {fileID: 2523992392988549137, guid: 73cbdb88d70664717ab87de8f0191492, type: 3}
-  border: {fileID: 6120934849357454876, guid: fc0335e1dd4ea49d1a7c659885e93fbe, type: 3}
+  fogTile: {fileID: 3327472916836051095, guid: adf038856f43f4e5cbf7867ee2e0fa6f, type: 3}
   trapTile: {fileID: 2295668089566288296, guid: 84b28e722d29d451a880777bfd571972,
     type: 3}
   treeTile: {fileID: 2890103447115409109, guid: c3d737bc007a84f74a2dc11b81e68dcf,

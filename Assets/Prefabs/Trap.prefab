@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8589235380807634413}
   - component: {fileID: 3413798025900559930}
   - component: {fileID: 4875111650538038091}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trap
   m_TagString: Traps
   m_Icon: {fileID: 0}
@@ -200,6 +200,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Detector
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164993128944526391, guid: 18a584a95469340759eeda34eeeb9204,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6232717823227672145, guid: 18a584a95469340759eeda34eeeb9204,
         type: 3}

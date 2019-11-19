@@ -7,26 +7,44 @@ public abstract class MovingObject : MonoBehaviour
 
     public float moveTime = 0.1f;
     public LayerMask blockLayer;
+
+    private BoxCollider2D boxCollider;
     private Rigidbody2D rb2D;
-    private float inverseMoveTime; //Used to make movement more efficient.
+    private float speed; //Used to make movement more efficient.
 
     // Start is called before the first frame update
     protected virtual void Start() // for overwritten
     {
+        boxCollider = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
-        inverseMoveTime = 1f / moveTime;
+        speed = 1f / moveTime;
     }
 
     //Move returns true if it is able to move and false if not. 
-    protected void Move(int x, int y)
+    protected virtual void Move(int x, int y)
     {
         //Store start position to move from, based on objects current transform position.
         Vector2 start = transform.position;
 
-        // Calculate end position based on the direction parameters passed in when calling Move.
-        Vector2 end = start + new Vector2(x, y);
+        
+        //boxCollider.enabled = false;
+
+        //hit = Physics2D.Linecast(start, end, blockLayer);
+
+        //boxCollider.enabled = true;
+
+        //if (hit.transform == null)
+        //{
+        //    StartCoroutine(SmoothMovement(end));
+
+        //    return true;
+        //}
+        var xPos = Mathf.Clamp(start.x + x, 0f, 9f);
+        var yPos = Mathf.Clamp(start.y + y, 0f, 9f);
+        Vector2 end = new Vector2(xPos, yPos);
 
         StartCoroutine(SmoothMovement(end));
+
     }
 
 
@@ -40,7 +58,7 @@ public abstract class MovingObject : MonoBehaviour
         while (sqrRemainingDistance > float.Epsilon)
         {
             //Find a new position proportionally closer to the end, based on the moveTime
-            Vector3 newPostion = Vector3.MoveTowards(rb2D.position, end, inverseMoveTime * Time.deltaTime);
+            Vector3 newPostion = Vector3.MoveTowards(rb2D.position, end, speed * Time.deltaTime);
 
             //Call MovePosition on attached Rigidbody2D and move it to the calculated position.
             rb2D.MovePosition(newPostion);
@@ -51,8 +69,22 @@ public abstract class MovingObject : MonoBehaviour
             //Return and loop until sqrRemainingDistance is close enough to zero to end the function
             yield return null;
         }
+
+        GameManager.instance.playersTurn = true;
     }
 
+    //protected virtual void AttemptMove(int x, int y)
+    //{
+    //    RaycastHit2D hit;
 
+    //    bool canMove = Move(x, y, out hit);
+
+    //    if (hit.transform == null)
+    //    {
+    //        return;
+    //    }
+
+    //    GameManager.instance.playersTurn = true;
+    //}
 
 }

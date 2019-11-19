@@ -26,7 +26,7 @@ public class BoardManager : MonoBehaviour
     public Count treeCount = new Count(1, 2);
     public GameObject home;
 
-    public GameObject border;
+    public GameObject fogTile;
     public GameObject trapTile;
     public GameObject treeTile;
 
@@ -62,23 +62,22 @@ public class BoardManager : MonoBehaviour
         boardHolder = new GameObject("Board").transform;
 
         //Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
-        for (int x = -1; x < cols + 1; x++)
+        for (int x = 0; x < cols; x++)
         {
             //Loop along y axis, starting from -1 to place floor or outerwall tiles.
-            for (int y = -1; y < rows + 1; y++)
+            for (int y = 0; y < rows; y++)
             {
 
-                //Check if we current position is at board edge, if so choose a random outer wall prefab from our array of outer wall tiles.
-                if (x == -1 || x == cols || y == -1 || y == rows)
+                if (x <= 2 && y <= 1)
                 {
-                    GameObject toInstantiate = border;
-
-                    GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
-
-                    //boardHolder是一个gameObject，把它设置为game board上所有对象的父对象
-                    instance.transform.SetParent(boardHolder);
+                    continue;
                 }
 
+                GameObject toInstantiate = fogTile;
+
+                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0), Quaternion.identity);
+
+                instance.transform.SetParent(boardHolder);
 
             }
         }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3534063348417457797}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TreeAndFlowers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +46,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flower (Right)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503690941243151221, guid: a645c2634eb8144fa84d23b29d318caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7503690941243151223, guid: a645c2634eb8144fa84d23b29d318caf,
         type: 3}
@@ -102,6 +107,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3680913770020170999, guid: a645c2634eb8144fa84d23b29d318caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a645c2634eb8144fa84d23b29d318caf, type: 3}
 --- !u!4 &5284252657176223394 stripped
@@ -121,6 +131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flower (Down)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503690941243151221, guid: a645c2634eb8144fa84d23b29d318caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7503690941243151223, guid: a645c2634eb8144fa84d23b29d318caf,
         type: 3}
@@ -177,6 +192,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3680913770020170999, guid: a645c2634eb8144fa84d23b29d318caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a645c2634eb8144fa84d23b29d318caf, type: 3}
 --- !u!4 &5948847236479160650 stripped
@@ -196,6 +216,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flower (Left)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503690941243151221, guid: a645c2634eb8144fa84d23b29d318caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7503690941243151223, guid: a645c2634eb8144fa84d23b29d318caf,
         type: 3}
@@ -252,6 +277,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3680913770020170999, guid: a645c2634eb8144fa84d23b29d318caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a645c2634eb8144fa84d23b29d318caf, type: 3}
 --- !u!4 &3149198908526863287 stripped
@@ -271,6 +301,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flower (Up)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503690941243151221, guid: a645c2634eb8144fa84d23b29d318caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7503690941243151223, guid: a645c2634eb8144fa84d23b29d318caf,
         type: 3}
@@ -327,6 +362,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3680913770020170999, guid: a645c2634eb8144fa84d23b29d318caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a645c2634eb8144fa84d23b29d318caf, type: 3}
 --- !u!4 &810762855307606280 stripped
@@ -346,6 +386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696143743980520498, guid: fd972a187f763402cbe4337af232eba7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5109888181635558146, guid: fd972a187f763402cbe4337af232eba7,
         type: 3}
