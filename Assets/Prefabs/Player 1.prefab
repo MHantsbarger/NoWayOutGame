@@ -82,7 +82,7 @@ SpriteRenderer:
   m_Size: {x: 0.725, y: 0.975}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8463749705080864584
@@ -101,6 +101,7 @@ MonoBehaviour:
   blockLayer:
     serializedVersion: 2
     m_Bits: 0
+  animator: {fileID: 7422601623127268070}
   prompts: {fileID: 0}
   FailText: {fileID: 0}
 --- !u!50 &8463749705080864588
@@ -115,7 +116,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.64000005
+  m_Mass: 0.16000001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

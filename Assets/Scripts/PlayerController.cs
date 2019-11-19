@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MovingObject
 {
 
-
+    public Animator animator;
     public Text prompts;
     public Text FailText; 
 
@@ -52,8 +52,18 @@ public class PlayerController : MovingObject
     {
         GameManager.instance.playersTurn = false;
         base.Move(x, y);
-
-
+        // if (x>0) {
+        //     animator.SetBool("IsMovingRight",true);
+        // }
+        // else if (x<0) {
+        //     animator.SetBool("IsMovingLeft",true);
+        // }
+        // else if (y>0) {
+        //     animator.SetBool("IsMovingUp",true);
+        // }
+        // else if (y<0) {
+        //     animator.SetBool("IsMovingDown",true);
+        // }
     }
 
 
