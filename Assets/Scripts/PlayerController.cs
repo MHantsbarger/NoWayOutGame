@@ -45,6 +45,9 @@ public class PlayerController : MovingObject
             GameManager.instance.playersTurn = false;
             Move(horizontal, vertical);
         }
+        else if (horizontal == 0 && vertical == 0) {
+            animator.SetTrigger("Idle");
+        }
 
     }
 
@@ -52,18 +55,18 @@ public class PlayerController : MovingObject
     {
         GameManager.instance.playersTurn = false;
         base.Move(x, y);
-        // if (x>0) {
-        //     animator.SetBool("IsMovingRight",true);
-        // }
-        // else if (x<0) {
-        //     animator.SetBool("IsMovingLeft",true);
-        // }
-        // else if (y>0) {
-        //     animator.SetBool("IsMovingUp",true);
-        // }
-        // else if (y<0) {
-        //     animator.SetBool("IsMovingDown",true);
-        // }
+        if (x>0) {
+            animator.SetTrigger("MoveRight");
+        }
+        else if (x<0) {
+            animator.SetTrigger("MoveLeft");
+        }
+        else if (y>0) {
+            animator.SetTrigger("MoveUp");
+        }
+        else if (y<0) {
+            animator.SetTrigger("MoveDown");
+        }
     }
 
 
