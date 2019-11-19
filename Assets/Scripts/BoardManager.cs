@@ -55,32 +55,29 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-    //Sets up the outer walls and floor (background) of the game board.
     void BoardSetup()
     {
-        //Instantiate Board and set boardHolder to its transform.
         boardHolder = new GameObject("Board").transform;
 
-        //Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
-        for (int x = 0; x < cols; x++)
-        {
-            //Loop along y axis, starting from -1 to place floor or outerwall tiles.
-            for (int y = 0; y < rows; y++)
-            {
+        //for (int x = 0; x < cols; x++)
+        //{
+        //    //Loop along y axis, starting from -1 to place floor or outerwall tiles.
+        //    for (int y = 0; y < rows; y++)
+        //    {
 
-                if (x <= 2 && y <= 1)
-                {
-                    continue;
-                }
+        //        if (x <= 2 && y <= 1)
+        //        {
+        //            continue;
+        //        }
 
-                GameObject toInstantiate = fogTile;
+        //        GameObject toInstantiate = fogTile;
 
-                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0), Quaternion.identity);
+        //        GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0), Quaternion.identity);
 
-                instance.transform.SetParent(boardHolder);
+        //        instance.transform.SetParent(boardHolder);
 
-            }
-        }
+        //    }
+        //}
     }
 
     //此函数返回一个随机的位置，用于放置trees
