@@ -89,6 +89,7 @@ public class BoardManager : MonoBehaviour
 
         int posX = Random.Range(1, 9);
         int posY = Random.Range(1, 9);
+
         while (posX <= 3 && posY <= 2)
         {
             posY = Random.Range(3, 9);

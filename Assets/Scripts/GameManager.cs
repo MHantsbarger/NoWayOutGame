@@ -41,11 +41,6 @@ public class GameManager : MonoBehaviour
         enabled = false; // disable the gameManager
     }
 
-    //IEnumerator MoveDelay()
-    //{
-    //    yield return new WaitForSeconds(turnDelay);
-    //    playersTurn = true;
-    //}
 
     void Update()
     {
@@ -53,7 +48,7 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        //StartCoroutine(MoveDelay());
     }
 
 }
+

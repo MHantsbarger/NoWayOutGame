@@ -23,6 +23,7 @@ public class PlayerController : MovingObject
     void Update()
     {
 
+
         if (!GameManager.instance.playersTurn)
         {
             return;
@@ -105,3 +106,4 @@ public class PlayerController : MovingObject
 
 
 }
+
