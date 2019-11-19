@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ghost : MonoBehaviour
+public class Ghost : MovingObject
 {
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,8 @@ public class Ghost : MonoBehaviour
 
     //executes a single ghost move towards the player
     void GhostMove() {
-
+        //find what direction player is
+        // Move(x,y);
     }
 
     //spawns the ghost in a random location far from the player
