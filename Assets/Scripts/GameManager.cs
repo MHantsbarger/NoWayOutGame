@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public float turnDelay = 0.1f; // how long the game wait between turns
+
+    public Text prompts;
+
+    private Text tempText;
 
     // 能让外部访问这个类的这个变量
     public static GameManager instance = null;
@@ -33,6 +38,10 @@ public class GameManager : MonoBehaviour
 
     private void InitGame()
     {
+        tempText = (Text)Instantiate(prompts);
+        tempText.GetComponent<Transform>().SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), true);
+        tempText.transform.position = GameObject.Find("Canvas").transform.position + new Vector3(0, -150, 0);
+        tempText.text = prompts.text;
         boardScript.SetupScene();
     }
 
@@ -48,6 +57,7 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+        tempText.text = prompts.text;
     }
 
 }

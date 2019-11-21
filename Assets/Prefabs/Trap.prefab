@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8589235380807634413}
   - component: {fileID: 3413798025900559930}
   - component: {fileID: 4875111650538038091}
+  - component: {fileID: -8708888917640039749}
   m_Layer: 8
   m_Name: Trap
   m_TagString: Traps
@@ -189,6 +190,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &-8708888917640039749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2295668089566288296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3270d9733e14bf2a5b1d4d8b3af057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompts: {fileID: 872004801473021164, guid: 7c7c8515b639a426db6e8f81b8547e34, type: 3}
 --- !u!1001 &6793299148750069140
 PrefabInstance:
   m_ObjectHideFlags: 0

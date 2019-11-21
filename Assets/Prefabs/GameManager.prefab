@@ -71,5 +71,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnDelay: 0.1
+  prompts: {fileID: 872004801473021164, guid: 7c7c8515b639a426db6e8f81b8547e34, type: 3}
   boardScript: {fileID: 0}
   playersTurn: 1

@@ -102,8 +102,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   animator: {fileID: 7422601623127268070}
-  prompts: {fileID: 0}
-  failText: {fileID: 0}
+  prompts: {fileID: 5426422029332266532, guid: 7c7c8515b639a426db6e8f81b8547e34, type: 3}
+  failText: {fileID: 201409664795527402, guid: ff7f150ffcfef47a1aa4422219e751ea, type: 3}
 --- !u!50 &8463749705080864588
 Rigidbody2D:
   serializedVersion: 4
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

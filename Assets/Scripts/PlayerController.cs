@@ -9,8 +9,8 @@ public class PlayerController : MovingObject
 {
 
     public Animator animator;
-    public Text prompts;
-    public Text failText;
+    //public Text prompts;
+    //public Text failText;
 
     
 
@@ -70,48 +70,49 @@ public class PlayerController : MovingObject
     }
 
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        GameObject item = other.gameObject;
-        if (item.CompareTag("Fog"))
-        {
-            Destroy(item);
-        }
-        if (item.CompareTag("Detector"))
-        {
-            failText.text = "Fail";
-            return;
-        }
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    GameObject item = other.gameObject;
 
-        if (item.CompareTag("Traps"))
-        {   
-            if (prompts.text != " ")
-            {
-                prompts.text += "Trap" + "\n";
-            }
-            else
-            {
-                prompts.text = "Trap" + "\n";
-            }
-        }
-        if (item.CompareTag("Plants"))
-        {
-            if (prompts.text != " ")
-            {
-                prompts.text += "Flower" + "\n";
-            } 
-            else
-            {
-                prompts.text = "Flower" + "\n";
-            }
-        }
-    }
+    //    if (item.CompareTag("Detector"))
+    //    {
+    //        prompts.text = "";
+    //        failText.text = "Fail";
+    //        return;
+    //    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        prompts.text = " ";
-        failText.text = " ";
-    }
+    //    if (item.CompareTag("Traps"))
+    //    {   
+    //        if (prompts.text != "")
+    //        {
+    //            prompts.text += "Trap" + "\n";
+    //        }
+    //        else
+    //        {
+    //            prompts.text = "Trap" + "\n";
+    //        }
+    //    }
+    //    if (item.CompareTag("Plants"))
+    //    {
+    //        if (prompts.text != "")
+    //        {
+    //            prompts.text += "Flower" + "\n";
+    //        } 
+    //        else
+    //        {
+    //            prompts.text = "Flower" + "\n";
+    //        }
+    //    }
+    //    if (item.CompareTag("Fog"))
+    //    {
+    //        Destroy(item);
+    //    }
+    //}
+
+    //private void OnTriggerExit2D(Collider2D other)
+    //{
+    //    prompts.text = "";
+    //}
 
 
     //private void Restart()
