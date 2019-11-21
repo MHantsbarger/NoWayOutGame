@@ -100,10 +100,10 @@ MonoBehaviour:
   moveTime: 0.1
   blockLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   animator: {fileID: 7422601623127268070}
   prompts: {fileID: 0}
-  FailText: {fileID: 0}
+  failText: {fileID: 0}
 --- !u!50 &8463749705080864588
 Rigidbody2D:
   serializedVersion: 4
@@ -115,8 +115,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.16000001
+  m_UseAutoMass: 0
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -149,7 +149,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4}
+  m_Size: {x: 0.3, y: 0.7}
   m_EdgeRadius: 0
 --- !u!95 &7422601623127268070
 Animator:

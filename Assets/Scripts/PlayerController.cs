@@ -10,7 +10,7 @@ public class PlayerController : MovingObject
 
     public Animator animator;
     public Text prompts;
-    public Text FailText; 
+    public Text failText;
 
     
 
@@ -77,10 +77,12 @@ public class PlayerController : MovingObject
         {
             Destroy(item);
         }
-        if (item.CompareTag("Item"))
+        if (item.CompareTag("Detector"))
         {
-            FailText.text = "Fail";
+            failText.text = "Fail";
+            return;
         }
+
         if (item.CompareTag("Traps"))
         {   
             if (prompts.text != " ")
@@ -108,7 +110,7 @@ public class PlayerController : MovingObject
     private void OnTriggerExit2D(Collider2D other)
     {
         prompts.text = " ";
-        FailText.text = " ";
+        failText.text = " ";
     }
 
 

@@ -7,7 +7,7 @@ TagManager:
   - Plants
   - Traps
   - Fog
-  - Item
+  - Detector
   layers:
   - Default
   - TransparentFX
