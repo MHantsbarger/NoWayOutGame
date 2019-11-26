@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -31,18 +32,31 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject); // Sets this to not be destroyed when reloading scene
         boardScript = GetComponent<BoardManager>();
         InitGame();
     }
 
     private void InitGame()
     {
+        prompts.text = "";
         tempText = (Text)Instantiate(prompts);
         tempText.GetComponent<Transform>().SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), true);
-        tempText.transform.position = GameObject.Find("Canvas").transform.position + new Vector3(0, -150, 0);
+        tempText.transform.position = GameObject.Find("Canvas").transform.position + new Vector3(0, -140, 0);
         tempText.text = prompts.text;
         boardScript.SetupScene();
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    static public void CallbackInitialization()
+    {
+        //register the callback to be called everytime the scene is loaded
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    //This is called each time a scene is loaded.
+    static private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        instance.InitGame();
     }
 
     public void GameOver()
