@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MovingObject
 {
-    //public Text prompts;
-    //public Text failText;
+
     private bool m_isAxisInUse = false;
 
     protected override void Start()
     {
+        enabled = true;
 
         base.Start();
     }
@@ -60,58 +60,6 @@ public class PlayerController : MovingObject
         GameManager.instance.playersTurn = false;
         base.Move(x, y);
     }
-
-
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    GameObject item = other.gameObject;
-
-    //    if (item.CompareTag("Detector"))
-    //    {
-    //        prompts.text = "";
-    //        failText.text = "Fail";
-    //        return;
-    //    }
-
-    //    if (item.CompareTag("Traps"))
-    //    {   
-    //        if (prompts.text != "")
-    //        {
-    //            prompts.text += "Trap" + "\n";
-    //        }
-    //        else
-    //        {
-    //            prompts.text = "Trap" + "\n";
-    //        }
-    //    }
-    //    if (item.CompareTag("Plants"))
-    //    {
-    //        if (prompts.text != "")
-    //        {
-    //            prompts.text += "Flower" + "\n";
-    //        } 
-    //        else
-    //        {
-    //            prompts.text = "Flower" + "\n";
-    //        }
-    //    }
-    //    if (item.CompareTag("Fog"))
-    //    {
-    //        Destroy(item);
-    //    }
-    //}
-
-    //private void OnTriggerExit2D(Collider2D other)
-    //{
-    //    prompts.text = "";
-    //}
-
-
-    //private void Restart()
-    //{
-    //    SceneManager.LoadScene(0);
-    //}
-
 
 }
 
