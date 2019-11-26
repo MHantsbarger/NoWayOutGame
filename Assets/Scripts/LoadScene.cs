@@ -8,4 +8,8 @@ public class LoadScene : MonoBehaviour
     public void SceneLoader(int sceneIndex) {
         SceneManager.LoadScene(sceneIndex);
     }
+
+    public void doExitGame() {
+        Application.Quit();
+    }
 }
