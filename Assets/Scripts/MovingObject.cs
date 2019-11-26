@@ -12,12 +12,14 @@ public abstract class MovingObject : MonoBehaviour
     private Rigidbody2D rb2D;
     private float speed; //Used to make movement more efficient.
 
+    public Animator animator;
+
     // Start is called before the first frame update
     protected virtual void Start() // for overwritten
     {
         boxCollider = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
-        speed = 1f / moveTime;
+        speed = .4f / moveTime;
     }
 
     //Move returns true if it is able to move and false if not. 
@@ -42,7 +44,19 @@ public abstract class MovingObject : MonoBehaviour
         var xPos = Mathf.Clamp(start.x + x, 0f, 9f);
         var yPos = Mathf.Clamp(start.y + y, 0f, 9f);
         Vector2 end = new Vector2(xPos, yPos);
-
+        
+        if (x>0) {
+            animator.SetTrigger("MoveRight");
+        }
+        else if (x<0) {
+            animator.SetTrigger("MoveLeft");
+        }
+        else if (y>0) {
+            animator.SetTrigger("MoveUp");
+        }
+        else if (y<0) {
+            animator.SetTrigger("MoveDown");
+        }
         StartCoroutine(SmoothMovement(end));
 
     }
@@ -70,6 +84,7 @@ public abstract class MovingObject : MonoBehaviour
             yield return null;
         }
 
+        animator.SetTrigger("Idle");
         GameManager.instance.playersTurn = true;
     }
 

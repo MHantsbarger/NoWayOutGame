@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerDetector : MonoBehaviour
 {
+    public Text prompts;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject player = collision.gameObject;
@@ -18,7 +21,8 @@ public class PlayerDetector : MonoBehaviour
     IEnumerator GameOver(GameObject player)
     {
         player.SetActive(false);
+        prompts.text = "";
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("StartScreen", LoadSceneMode.Single);
     }
 }

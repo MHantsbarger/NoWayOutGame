@@ -5,10 +5,10 @@ using UnityEngine;
 public class Ghost : MovingObject
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        //create ghost off of screen
-    }
+    // void Start()
+    // {
+    //     //create ghost off of screen
+    // }
 
     // Update is called once per frame
     void Update()

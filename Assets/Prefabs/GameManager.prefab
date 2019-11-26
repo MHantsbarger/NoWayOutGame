@@ -56,7 +56,9 @@ MonoBehaviour:
   fogTile: {fileID: 3327472916836051095, guid: adf038856f43f4e5cbf7867ee2e0fa6f, type: 3}
   trapTile: {fileID: 2295668089566288296, guid: 84b28e722d29d451a880777bfd571972,
     type: 3}
-  treeTile: {fileID: 2890103447115409109, guid: c3d737bc007a84f74a2dc11b81e68dcf,
+  treeTile: {fileID: 3696143743980520498, guid: fd972a187f763402cbe4337af232eba7,
+    type: 3}
+  flowerTile: {fileID: 7503690941243151221, guid: a645c2634eb8144fa84d23b29d318caf,
     type: 3}
 --- !u!114 &460994417673296159
 MonoBehaviour:
