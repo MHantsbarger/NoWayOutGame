@@ -9,10 +9,13 @@ public class PlayerController : MovingObject
 {
 
     private bool m_isAxisInUse = false;
+    private CircleCollider2D candle;
+    private float candleAmount = 3;
 
     protected override void Start()
     {
         enabled = true;
+        candle = GameObject.Find("CandleTrigger").GetComponent<CircleCollider2D>();
 
         base.Start();
     }
@@ -53,10 +56,15 @@ public class PlayerController : MovingObject
             GameManager.instance.playersTurn = false;
             Move(horizontal, vertical);
         }
+        if (Input.GetKeyDown("v") && candleAmount > 0) {
+            candle.enabled = true;
+            candleAmount -= 1;
+        }
     }
 
     protected override void Move(int x, int y)
     {
+        candle.enabled = false;
         GameManager.instance.playersTurn = false;
         base.Move(x, y);
     }
