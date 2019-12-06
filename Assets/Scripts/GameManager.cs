@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
         boardScript = GetComponent<BoardManager>();
         winLoseWindow = GameObject.Find("WinLoseWindow");
         winLoseText = GameObject.Find("WinLoseText").GetComponent<Text>();
-        Debug.Log("WinLoseWindowObj gotten");
         winLoseWindow.SetActive(false);
         InitGame();
     }
@@ -73,9 +72,14 @@ public class GameManager : MonoBehaviour
         winLoseText.text = "You Lose!";
         prompts.text = "";
         winLoseWindow.SetActive(true);
-        Debug.Log("component gotten");
     }
-
+    public void YouWin()
+    {
+        // enabled = false; // disable the gameManager
+        winLoseText.text = "You Win!";
+        prompts.text = "";
+        winLoseWindow.SetActive(true);
+    }
 
     void Update()
     {
