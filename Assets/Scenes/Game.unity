@@ -253,11 +253,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinLoseWindow
       objectReference: {fileID: 0}
-    - target: {fileID: 6984921926126877449, guid: 011f8ec0af825c24eb2d83bd8148ad84,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6984921926126877454, guid: 011f8ec0af825c24eb2d83bd8148ad84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -362,11 +357,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6984921924875810351, guid: 011f8ec0af825c24eb2d83bd8148ad84,
-        type: 3}
-      propertyPath: m_Name
-      value: WinLoseText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 011f8ec0af825c24eb2d83bd8148ad84, type: 3}
