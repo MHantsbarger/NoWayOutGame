@@ -23,6 +23,7 @@ public class PlayerDetector : MonoBehaviour
         player.SetActive(false);
         prompts.text = "";
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("StartScreen", LoadSceneMode.Single);
+        GameManager.instance.GameOver();
+        // SceneManager.LoadScene("StartScreen", LoadSceneMode.Single);
     }
 }

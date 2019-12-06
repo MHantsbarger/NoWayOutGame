@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     private Text tempText;
 
+    public GameObject winLoseWindow;
+    public Text winLoseText;
+
     // 能让外部访问这个类的这个变量
     public static GameManager instance = null;
 
@@ -33,6 +36,10 @@ public class GameManager : MonoBehaviour
         }
 
         boardScript = GetComponent<BoardManager>();
+        winLoseWindow = GameObject.Find("WinLoseWindow");
+        winLoseText = GameObject.Find("WinLoseText").GetComponent<Text>();
+        Debug.Log("WinLoseWindowObj gotten");
+        winLoseWindow.SetActive(false);
         InitGame();
     }
 
@@ -62,7 +69,11 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        enabled = false; // disable the gameManager
+        // enabled = false; // disable the gameManager
+        winLoseText.text = "You Lose!";
+        prompts.text = "";
+        winLoseWindow.SetActive(true);
+        Debug.Log("component gotten");
     }
 
 

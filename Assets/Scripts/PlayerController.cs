@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MovingObject
 {
-
+    private const float DEFAULTCANDLENUM = 3;
     private bool m_isAxisInUse = false;
     private CircleCollider2D candle;
-    private float candleAmount = 3;
+    private float candleAmount = DEFAULTCANDLENUM;
 
     protected override void Start()
     {
