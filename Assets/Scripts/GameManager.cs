@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         tempText.GetComponent<Transform>().SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), true);
         tempText.transform.position = GameObject.Find("Canvas").transform.position + new Vector3(0, -140, 0);
         tempText.text = prompts.text;
+        prompts.raycastTarget = false;
         boardScript.SetupScene();
     }
 
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
     static public void CallbackInitialization()
     {
         //register the callback to be called everytime the scene is loaded
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     //This is called each time a scene is loaded.
