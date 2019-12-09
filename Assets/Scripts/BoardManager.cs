@@ -32,28 +32,8 @@ public class BoardManager : MonoBehaviour
 
     private Transform boardHolder; //A variable to store a reference to the transform of our Board object.
     private List<Vector3> gridPositions = new List<Vector3>(); //A list of possible locations to place tiles.
+    private HashSet<int> roadToHome = new HashSet<int>();
 
-    //Clears our list gridPositions and prepares it to generate a new board.
-    void InitialiseList()
-    {
-        //Clear our list gridPositions.
-        gridPositions.Clear();
-
-        //Loop through x axis (columns).
-        for (int x = 0; x < cols; x++)
-        {
-            //Within each column, loop through y axis (rows).
-            for (int y = 0; y < rows; y++)
-            {
-                //At each index add a new Vector3 to our list with the x and y coordinates of that position.
-                if (x >= 0 && x <= 2 && y >= 0 && y <= 1)
-                {
-                    continue;
-                }
-                gridPositions.Add(new Vector3(x, y, 0f));
-            }
-        }
-    }
 
     void BoardSetup()
     {
@@ -79,15 +59,99 @@ public class BoardManager : MonoBehaviour
         //}
     }
 
+    //Clears our list gridPositions and prepares it to generate a new board.
+    void InitialiseList(Vector3 homePosition)
+    {
+        gridPositions.Clear();
+        roadToHome.Clear();
+        
+        float homeX = homePosition.x;
+        float homeY = homePosition.y;
+
+        int midX = Random.Range(0, (int)homePosition.x + 1);
+        int midY = Random.Range(0, (int)homePosition.y + 1);
+
+        int roadDirection = Random.Range(0, 2); // 0 -> up, 1 -> right
+        if (roadDirection == 0)
+        {
+            int startX = Random.Range(0, 3);
+            for (int i = 0; i < midY; i++)
+            {
+                int gridID = 10 * i + startX;
+                roadToHome.Add(gridID);
+            }
+
+            for (int i = startX; i < midX; i++)
+            {
+                int gridID = 10 * midY + i;
+                roadToHome.Add(gridID);
+            }
+
+            for (int i = midY; i < homeY; i++)
+            {
+                int gridID = 10 * i + midX;
+                roadToHome.Add(gridID);
+            }
+
+            for (int i = midX; i < homeX; i++)
+            {
+                int gridID = 10 * (int)homeY + i;
+                roadToHome.Add(gridID);
+            }
+        } 
+        else
+        {
+            int startY = Random.Range(0, 2);
+            for (int i = 0; i < midX; i++)
+            {
+                int gridID = 10 * startY + i;
+                roadToHome.Add(gridID);
+            }
+
+            for (int i = startY; i < midY; i++)
+            {
+                int gridID = 10 * i + midX;
+                roadToHome.Add(gridID);
+            }
+
+            for (int i = midX; i < homeX; i++)
+            {
+                int gridID = 10 * midY + i;
+                roadToHome.Add(gridID);
+            }
+
+            for (int i = midY; i < homeY; i++)
+            {
+                int gridID = 10 * i + (int)homeX;
+                roadToHome.Add(gridID);
+            }
+        }
+        roadToHome.Add((int)homeY * 10 + (int)homeX);
+
+        for (int x = 0; x < cols; x++)
+        {
+            for (int y = 0; y < rows; y++)
+            {
+                if (x >= 0 && x <= 2 && y >= 0 && y <= 1)
+                {
+                    continue;
+                }
+                int gridID = 10 * y + x;
+                if (roadToHome.Contains(gridID))
+                {
+                    continue;
+                }
+                gridPositions.Add(new Vector3(x, y, 0f));
+            }
+        }
+    }
+
     Vector3 RandomHomePosition()
     {
-        int randomIndex = Random.Range(0, gridPositions.Count);
-        Vector3 randomPosition = gridPositions[randomIndex];
-        while (!(randomPosition.x >= 6 && randomPosition.y >= 6))
-        {
-            randomIndex = Random.Range(0, gridPositions.Count);
-            randomPosition = gridPositions[randomIndex];
-        }
+        int posX = Random.Range(6, 10);
+        int posY = Random.Range(6, 10);
+        Vector3 randomPosition = new Vector3((float) posX, (float) posY);
+
         return randomPosition;
     }
 
@@ -97,16 +161,16 @@ public class BoardManager : MonoBehaviour
 
         int posX = Random.Range(1, 9);
         int posY = Random.Range(1, 9);
+        int posID = 10 * posY + posX;
 
-        while (posX >= 8 && posY >= 8)
+        while ((posX <= 3 && posY <= 2) || 
+            roadToHome.Contains(posID) || roadToHome.Contains(posID + 1) || 
+            roadToHome.Contains(posID - 1) || roadToHome.Contains(posID + 10) ||
+            roadToHome.Contains(posID - 10))
         {
             posX = Random.Range(1, 9);
             posY = Random.Range(1, 9);
-        }
-
-        while (posX <= 3 && posY <= 2)
-        {
-            posY = Random.Range(3, 8);
+            posID = 10 * posY + posX;
         }
 
         int treeIndex = 0;
@@ -133,6 +197,11 @@ public class BoardManager : MonoBehaviour
     {
         int randomIndex = Random.Range(0, gridPositions.Count);
         Vector3 randomPosition = gridPositions[randomIndex];
+        while (roadToHome.Contains(10 * (int)randomPosition.y + (int)randomPosition.x))
+        {
+            randomIndex = Random.Range(0, gridPositions.Count);
+            randomPosition = gridPositions[randomIndex];
+        }
         gridPositions.RemoveAt(randomIndex);
 
         return randomPosition;
@@ -161,16 +230,16 @@ public class BoardManager : MonoBehaviour
         float posY = treePosition.y;
 
         Vector3 f1 = new Vector3(posX - 1, posY, 0);
-        int f1Index = 0;
+        int f1Index = -1;
 
         Vector3 f2 = new Vector3(posX + 1, posY, 0);
-        int f2Index = 0;
+        int f2Index = -1;
 
         Vector3 f3 = new Vector3(posX, posY - 1, 0);
-        int f3Index = 0;
+        int f3Index = -1;
 
         Vector3 f4 = new Vector3(posX, posY + 1, 0);
-        int f4Index = 0;
+        int f4Index = -1;
 
         for (int i = 0; i < gridPositions.Count; i++)
         {
@@ -179,9 +248,13 @@ public class BoardManager : MonoBehaviour
                 f1Index = i;
                 GameObject flower = flowerTile;
                 Instantiate(flower, f1, Quaternion.identity);
+                break;
             }
         }
-        gridPositions.RemoveAt(f1Index);
+        if (f1Index != -1)
+        {
+            gridPositions.RemoveAt(f1Index);
+        }
 
         for (int i = 0; i < gridPositions.Count; i++)
         {
@@ -190,9 +263,13 @@ public class BoardManager : MonoBehaviour
                 f2Index = i;
                 GameObject flower = flowerTile;
                 Instantiate(flower, f2, Quaternion.identity);
+                break;
             }
         }
-        gridPositions.RemoveAt(f2Index);
+        if (f2Index != -1)
+        {
+            gridPositions.RemoveAt(f2Index);
+        }
 
         for (int i = 0; i < gridPositions.Count; i++)
         {
@@ -201,9 +278,13 @@ public class BoardManager : MonoBehaviour
                 f3Index = i;
                 GameObject flower = flowerTile;
                 Instantiate(flower, f3, Quaternion.identity);
+                break;
             }
         }
-        gridPositions.RemoveAt(f3Index);
+        if (f3Index != -1)
+        {
+            gridPositions.RemoveAt(f3Index);
+        }
 
         for (int i = 0; i < gridPositions.Count; i++)
         {
@@ -212,9 +293,13 @@ public class BoardManager : MonoBehaviour
                 f4Index = i;
                 GameObject flower = flowerTile;
                 Instantiate(flower, f4, Quaternion.identity);
+                break;
             }
         }
-        gridPositions.RemoveAt(f4Index);
+        if (f4Index != -1)
+        {
+            gridPositions.RemoveAt(f4Index);
+        }
 
     }
 
@@ -239,17 +324,17 @@ public class BoardManager : MonoBehaviour
     {
         //Creates the outer walls and floor.
         BoardSetup();
+
         SetupLayoutObjects();
-        Vector3 homePosition = RandomHomePosition();
-
-
-        Instantiate(home, homePosition, Quaternion.identity);
 
     }
 
     private void SetupLayoutObjects()
     {
-        InitialiseList();
+        Vector3 homePosition = RandomHomePosition();
+        Instantiate(home, homePosition, Quaternion.identity);
+
+        InitialiseList(homePosition);
 
         LayoutTreesAtRandom(treeTile, treeCount.min, treeCount.max);
 
