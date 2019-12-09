@@ -28,33 +28,21 @@ public abstract class MovingObject : MonoBehaviour
         //Store start position to move from, based on objects current transform position.
         Vector2 start = transform.position;
 
-        
-        //boxCollider.enabled = false;
 
-        //hit = Physics2D.Linecast(start, end, blockLayer);
-
-        //boxCollider.enabled = true;
-
-        //if (hit.transform == null)
-        //{
-        //    StartCoroutine(SmoothMovement(end));
-
-        //    return true;
-        //}
         var xPos = Mathf.Clamp(start.x + x, 0f, 9f);
         var yPos = Mathf.Clamp(start.y + y, 0f, 9f);
         Vector2 end = new Vector2(xPos, yPos);
         
-        if (x>0) {
+        if (x > 0) {
             animator.SetTrigger("MoveRight");
         }
-        else if (x<0) {
+        else if (x < 0) {
             animator.SetTrigger("MoveLeft");
         }
-        else if (y>0) {
+        else if (y > 0) {
             animator.SetTrigger("MoveUp");
         }
-        else if (y<0) {
+        else if (y < 0) {
             animator.SetTrigger("MoveDown");
         }
         StartCoroutine(SmoothMovement(end));
@@ -88,18 +76,6 @@ public abstract class MovingObject : MonoBehaviour
         GameManager.instance.playersTurn = true;
     }
 
-    //protected virtual void AttemptMove(int x, int y)
-    //{
-    //    RaycastHit2D hit;
 
-    //    bool canMove = Move(x, y, out hit);
-
-    //    if (hit.transform == null)
-    //    {
-    //        return;
-    //    }
-
-    //    GameManager.instance.playersTurn = true;
-    //}
 
 }

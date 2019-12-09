@@ -50,10 +50,6 @@ public class BoardManager : MonoBehaviour
                 {
                     continue;
                 }
-                if (x >= 8 && y >= 8)
-                {
-                    continue;
-                }
                 gridPositions.Add(new Vector3(x, y, 0f));
             }
         }
@@ -63,31 +59,35 @@ public class BoardManager : MonoBehaviour
     {
         boardHolder = new GameObject("Board").transform;
 
-        for (int x = 0; x < cols; x++)
-        {
-            for (int y = 0; y < rows; y++)
-            {
+        //for (int x = 0; x < cols; x++)
+        //{
+        //    for (int y = 0; y < rows; y++)
+        //    {
 
-                if (x <= 2 && y <= 1)
-                {
-                    continue;
-                }
+        //        if (x <= 2 && y <= 1)
+        //        {
+        //            continue;
+        //        }
 
-                GameObject toInstantiate = fogTile;
+        //        GameObject toInstantiate = fogTile;
 
-                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0), Quaternion.identity);
+        //        GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0), Quaternion.identity);
 
-                instance.transform.SetParent(boardHolder);
+        //        instance.transform.SetParent(boardHolder);
 
-            }
-        }
+        //    }
+        //}
     }
 
     Vector3 RandomHomePosition()
     {
-        int posX = Random.Range(8, 10);
-        int posY = Random.Range(8, 10);
-        Vector3 randomPosition = new Vector3(posX, posY);
+        int randomIndex = Random.Range(0, gridPositions.Count);
+        Vector3 randomPosition = gridPositions[randomIndex];
+        while (!(randomPosition.x >= 6 && randomPosition.y >= 6))
+        {
+            randomIndex = Random.Range(0, gridPositions.Count);
+            randomPosition = gridPositions[randomIndex];
+        }
         return randomPosition;
     }
 
@@ -239,17 +239,24 @@ public class BoardManager : MonoBehaviour
     {
         //Creates the outer walls and floor.
         BoardSetup();
+        SetupLayoutObjects();
+        Vector3 homePosition = RandomHomePosition();
 
-        //Reset our list of gridpositions.
+
+        Instantiate(home, homePosition, Quaternion.identity);
+
+    }
+
+    private void SetupLayoutObjects()
+    {
         InitialiseList();
 
         LayoutTreesAtRandom(treeTile, treeCount.min, treeCount.max);
 
         LayoutTrapsAtRandom(trapTile, trapCount.min, trapCount.max);
 
-        //Instantiate the exit tile in the upper right hand corner of our game board
-        Instantiate(home, RandomHomePosition(), Quaternion.identity);
     }
+
 
 
 }
