@@ -11,12 +11,13 @@ public class PlayerController : MovingObject
     private bool m_isAxisInUse = false;
     private CircleCollider2D candle;
     public int candleAmount = DEFAULTCANDLENUM;
+    public bool movementControl;
 
     protected override void Start()
     {
         enabled = true;
         candle = GameObject.Find("CandleTrigger").GetComponent<CircleCollider2D>();
-
+        movementControl = true;
         base.Start();
     }
 
@@ -31,7 +32,7 @@ public class PlayerController : MovingObject
         int horizontal = 0;
         int vertical = 0;
 
-        if( Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        if (movementControl && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0))
         {
             if(m_isAxisInUse == false)
             {
@@ -56,7 +57,7 @@ public class PlayerController : MovingObject
             GameManager.instance.playersTurn = false;
             Move(horizontal, vertical);
         }
-        if (Input.GetKeyDown("v") && candleAmount > 0) {
+        if (movementControl && Input.GetKeyDown(KeyCode.Space) && candleAmount > 0) {
             candle.enabled = true;
             FindObjectOfType<Candles>().removeCandle();
             candleAmount -= 1;
@@ -68,6 +69,10 @@ public class PlayerController : MovingObject
         candle.enabled = false;
         GameManager.instance.playersTurn = false;
         base.Move(x, y);
+    }
+
+    public void SetMovementControl(bool controlBool) {
+        movementControl = controlBool;
     }
 
 }

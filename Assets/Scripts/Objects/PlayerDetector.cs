@@ -20,7 +20,11 @@ public class PlayerDetector : MonoBehaviour
 
     IEnumerator GameOver(GameObject player)
     {
-        player.SetActive(false);
+        // player.SetActive(false);
+        PlayerController playerController =  player.GetComponent<PlayerController>();
+        playerController.SetMovementControl(false);
+        Animator animatorObject = player.GetComponent<Animator>();
+        animatorObject.SetTrigger("Skeletonized");
         prompts.text = "";
         yield return new WaitForSeconds(1.5f);
         GameManager.instance.GameOver();

@@ -19,7 +19,10 @@ public class Home : MonoBehaviour
 
     IEnumerator GameOver(GameObject player)
     {
-        // player.SetActive(false);
+        PlayerController playerController =  player.GetComponent<PlayerController>();
+        playerController.SetMovementControl(false);
+        Animator animatorObject = player.GetComponent<Animator>();
+        animatorObject.SetTrigger("FoundHome");
         yield return new WaitForSeconds(1.5f);
         GameManager.instance.YouWin();
         // SceneManager.LoadScene("StartScreen", LoadSceneMode.Single);
