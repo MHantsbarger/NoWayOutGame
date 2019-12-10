@@ -380,6 +380,11 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6984921924875810348, guid: 011f8ec0af825c24eb2d83bd8148ad84,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 6984921925210279587, guid: 011f8ec0af825c24eb2d83bd8148ad84,
         type: 3}
       propertyPath: m_IsActive
@@ -853,7 +858,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 399757784}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1149174150
+--- !u!114 &1149174153
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
