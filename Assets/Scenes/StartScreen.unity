@@ -1541,6 +1541,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 325243478}
   pointer: {fileID: 1301799106}
+  options:
+  - {fileID: 90745187}
+  - {fileID: 1302018506}
+  - {fileID: 1849526210}
   option1: {fileID: 90745187}
   option2: {fileID: 1302018506}
   option3: {fileID: 1849526210}
