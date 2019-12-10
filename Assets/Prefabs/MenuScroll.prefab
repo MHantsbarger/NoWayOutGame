@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4477565707199655568}
   m_Layer: 5
   m_Name: StartGameText
-  m_TagString: Untagged
+  m_TagString: StartOption
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4477565707643406561}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 174.54004, y: -85.7228, z: -620.4706}
   m_LocalScale: {x: 0.78125, y: 0.78125, z: 0.78125}
   m_Children:
@@ -146,9 +146,6 @@ MonoBehaviour:
   - {fileID: 4477565707199655574}
   - {fileID: 4477565708152651327}
   - {fileID: 4477565708729712695}
-  option1: {fileID: 4477565707199655574}
-  option2: {fileID: 4477565708152651327}
-  option3: {fileID: 4477565708729712695}
 --- !u!1 &4477565708152366901
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +233,7 @@ GameObject:
   - component: {fileID: 4477565708152651326}
   m_Layer: 5
   m_Name: Instructions
-  m_TagString: Untagged
+  m_TagString: PlayerMvmtOption
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,7 +326,7 @@ GameObject:
   - component: {fileID: 4477565708729712689}
   m_Layer: 5
   m_Name: QuitGameText
-  m_TagString: Untagged
+  m_TagString: QuitOption
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,7 +389,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: Quit Game
 --- !u!114 &4477565708729712689
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,14 @@ TagManager:
   - Traps
   - Fog
   - Detector
+  - StartOption
+  - MainMenuOption
+  - QuitOption
+  - PlayerMvmtOption
+  - HomeGoalOption
+  - AvoidHazardsOption
+  - HazardsNearOption
+  - CandleOption
   layers:
   - Default
   - TransparentFX

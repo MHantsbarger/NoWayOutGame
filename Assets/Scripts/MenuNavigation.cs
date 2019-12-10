@@ -14,9 +14,9 @@ public class MenuNavigation : MonoBehaviour
     public Image pointer;
 
     public Text[] options;
-    public Text option1;
-    public Text option2;
-    public Text option3;
+    // public Text option1;
+    // public Text option2;
+    // public Text option3;
 
     // private int numberOfOptions = 3;
 
@@ -109,19 +109,42 @@ public class MenuNavigation : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) ||  Input.GetKeyDown("joystick button 0")){
             Debug.Log("Picked: " + selectedOption); //For testing as the switch statment does nothing right now.
-
-            switch (selectedOption) //Set the visual indicator for which option you are on.
-            {
-                case 0:
-                    sceneLoader.SceneLoader(5);
-                    break;
-                case 1:
-                    sceneLoader.SceneLoader(1);
-                    break;
-                case 2:
-                    sceneLoader.doExitGame();
-                    break;
+            if (options[selectedOption].tag == "StartOption") {
+                sceneLoader.SceneLoader(6);
             }
+            else if (options[selectedOption].tag == "MainMenuOption") {
+                sceneLoader.SceneLoader(0);
+            }
+            else if (options[selectedOption].tag == "PlayerMvmtOption") {
+                sceneLoader.SceneLoader(1);
+            }
+            else if (options[selectedOption].tag == "HomeGoalOption") {
+                sceneLoader.SceneLoader(2);
+            }
+            else if (options[selectedOption].tag == "AvoidHazardsOption") {
+                sceneLoader.SceneLoader(3);
+            }
+            else if (options[selectedOption].tag == "HazardsNearOption") {
+                sceneLoader.SceneLoader(4);
+            }
+            else if (options[selectedOption].tag == "CandleOption") {
+                sceneLoader.SceneLoader(5);
+            }
+            else if (options[selectedOption].tag == "QuitOption") {
+                sceneLoader.doExitGame();
+            }
+            // switch (selectedOption) //Set the visual indicator for which option you are on.
+            // {
+            //     case 0:
+            //         sceneLoader.SceneLoader(5);
+            //         break;
+            //     case 1:
+            //         sceneLoader.SceneLoader(1);
+            //         break;
+            //     case 2:
+            //         sceneLoader.doExitGame();
+            //         break;
+            // }
         }
     }
 }
