@@ -8,6 +8,7 @@ public class Flower : MonoBehaviour
 
     public Text prompts;
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

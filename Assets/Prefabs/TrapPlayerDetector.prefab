@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3395347802801628382}
   - component: {fileID: 5531766455100774347}
   m_Layer: 8
-  m_Name: PlayerDetector
+  m_Name: TrapPlayerDetector
   m_TagString: Detector
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,3 +71,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompts: {fileID: 872004801473021164, guid: 7c7c8515b639a426db6e8f81b8547e34, type: 3}
+  sound: {fileID: 8300000, guid: 4203441a1d5cc4f95bc75c40bbb0cc05, type: 3}
+  volume: 1

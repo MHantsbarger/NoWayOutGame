@@ -45,6 +45,7 @@ public abstract class MovingObject : MonoBehaviour
         else if (y < 0) {
             animator.SetTrigger("MoveDown");
         }
+
         StartCoroutine(SmoothMovement(end));
 
     }

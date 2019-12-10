@@ -46,15 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cols: 10
   rows: 10
-  trapCount:
-    min: 6
-    max: 10
-  treeCount:
-    min: 2
-    max: 3
   home: {fileID: 2523992392988549137, guid: 73cbdb88d70664717ab87de8f0191492, type: 3}
   fogTile: {fileID: 3327472916836051095, guid: adf038856f43f4e5cbf7867ee2e0fa6f, type: 3}
-  trapTile: {fileID: 2295668089566288296, guid: 84b28e722d29d451a880777bfd571972,
+  trapTile: {fileID: 2786679416216106711, guid: 465c7fc6867294c428c80d811b207750,
     type: 3}
   treeTile: {fileID: 3696143743980520498, guid: fd972a187f763402cbe4337af232eba7,
     type: 3}
@@ -74,5 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnDelay: 0.1
   prompts: {fileID: 872004801473021164, guid: 7c7c8515b639a426db6e8f81b8547e34, type: 3}
+  winLoseWindow: {fileID: 0}
+  winLoseText: {fileID: 0}
   boardScript: {fileID: 0}
   playersTurn: 1

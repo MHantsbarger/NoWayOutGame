@@ -13,6 +13,9 @@ public class PlayerController : MovingObject
     public int candleAmount = DEFAULTCANDLENUM;
     public bool movementControl;
 
+    [SerializeField] AudioClip walkingSound;
+    [SerializeField] [Range(0, 1)] float walkingSoundVolume = 1f;
+
     protected override void Start()
     {
         enabled = true;
@@ -69,6 +72,7 @@ public class PlayerController : MovingObject
         candle.enabled = false;
         GameManager.instance.playersTurn = false;
         base.Move(x, y);
+        AudioSource.PlayClipAtPoint(walkingSound, transform.position, walkingSoundVolume);
     }
 
     public void SetMovementControl(bool controlBool) {

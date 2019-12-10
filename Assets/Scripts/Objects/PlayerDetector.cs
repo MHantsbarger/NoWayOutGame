@@ -8,12 +8,16 @@ public class PlayerDetector : MonoBehaviour
 {
     public Text prompts;
 
+    [SerializeField] AudioClip sound;
+    [SerializeField] [Range(0, 1)] float volume = 1f;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject player = collision.gameObject;
 
         if (player.CompareTag("Player"))
         {
+            AudioSource.PlayClipAtPoint(sound, transform.position, volume);
             StartCoroutine(GameOver(player));
         }
     }
