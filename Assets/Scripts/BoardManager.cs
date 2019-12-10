@@ -22,8 +22,8 @@ public class BoardManager : MonoBehaviour
 
     public int cols = 10;
     public int rows = 10;
-    public Count trapCount = new Count(4, 8);
-    public Count treeCount = new Count(1, 2);
+    private Count trapCount = new Count(10, 15);
+    private Count treeCount = new Count(2, 3);
     public GameObject home;
     public GameObject fogTile;
     public GameObject trapTile;
@@ -39,24 +39,24 @@ public class BoardManager : MonoBehaviour
     {
         boardHolder = new GameObject("Board").transform;
 
-        for (int x = 0; x < cols; x++)
-        {
-            for (int y = 0; y < rows; y++)
-            {
+        //for (int x = 0; x < cols; x++)
+        //{
+        //    for (int y = 0; y < rows; y++)
+        //    {
 
-                if (x <= 2 && y <= 1)
-                {
-                    continue;
-                }
+        //        if (x <= 2 && y <= 1)
+        //        {
+        //            continue;
+        //        }
 
-                GameObject toInstantiate = fogTile;
+        //        GameObject toInstantiate = fogTile;
 
-                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0), Quaternion.identity);
+        //        GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0), Quaternion.identity);
 
-                instance.transform.SetParent(boardHolder);
+        //        instance.transform.SetParent(boardHolder);
 
-            }
-        }
+        //    }
+        //}
     }
 
     //Clears our list gridPositions and prepares it to generate a new board.
@@ -197,11 +197,6 @@ public class BoardManager : MonoBehaviour
     {
         int randomIndex = Random.Range(0, gridPositions.Count);
         Vector3 randomPosition = gridPositions[randomIndex];
-        while (roadToHome.Contains(10 * (int)randomPosition.y + (int)randomPosition.x))
-        {
-            randomIndex = Random.Range(0, gridPositions.Count);
-            randomPosition = gridPositions[randomIndex];
-        }
         gridPositions.RemoveAt(randomIndex);
 
         return randomPosition;
@@ -306,6 +301,8 @@ public class BoardManager : MonoBehaviour
     void LayoutTrapsAtRandom(GameObject tile, int minimum, int maximum)
     {
         int objectCount = Random.Range(minimum, maximum + 1);
+        Debug.Log(minimum);
+        Debug.Log(maximum);
 
         for (int i = 0; i < objectCount; i++)
         {
