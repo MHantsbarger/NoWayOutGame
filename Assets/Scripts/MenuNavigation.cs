@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class MenuNavigation : MonoBehaviour
 {
+    public LoadScene sceneLoader;
+
+    private Color32 selectedColor = new Color32(0, 180, 0, 255);
+    private Color32 unselectedColor = new Color32(255, 255, 255, 255);
+
     public const int POINTERXPOS = 400;
     public Image pointer;
 
@@ -19,9 +24,9 @@ public class MenuNavigation : MonoBehaviour
     // Use this for initialization
     void Start () {
         selectedOption = 1;
-        option1.color = new Color32(255, 255, 255, 255);
-        option2.color = new Color32(0, 0, 0, 255);
-        option3.color = new Color32(0, 0, 0, 255);
+        option1.color = selectedColor;
+        option2.color = unselectedColor;
+        option3.color = unselectedColor;
 
         pointer.transform.position = new Vector3(POINTERXPOS, option1.transform.position.y);
     }
@@ -36,22 +41,22 @@ public class MenuNavigation : MonoBehaviour
                 selectedOption = 1;
             }
 
-            option1.color = new Color32(0, 0, 0, 255); //Make sure all others will be black (or do any visual you want to use to indicate this)
-            option2.color = new Color32(0, 0, 0, 255);
-            option3.color = new Color32(0, 0, 0, 255);
+            option1.color = unselectedColor;
+            option2.color = unselectedColor;
+            option3.color = unselectedColor;
 
             switch (selectedOption) //Set the visual indicator for which option you are on.
             {
                 case 1:
-                    option1.color = new Color32(255, 255, 255, 255);
+                    option1.color = selectedColor;
                     pointer.transform.position = new Vector3(POINTERXPOS, option1.transform.position.y);
                     break;
                 case 2:
-                    option2.color = new Color32(255, 255, 255, 255);
+                    option2.color = selectedColor;
                     pointer.transform.position = new Vector3(POINTERXPOS, option2.transform.position.y);
                     break;
                 case 3:
-                    option3.color = new Color32(255, 255, 255, 255);
+                    option3.color = selectedColor;
                     pointer.transform.position = new Vector3(POINTERXPOS, option3.transform.position.y);
                     break;
             }
@@ -65,22 +70,22 @@ public class MenuNavigation : MonoBehaviour
                 selectedOption = numberOfOptions;
             }
 
-            option1.color = new Color32(0, 0, 0, 255); //Make sure all others will be black (or do any visual you want to use to indicate this)
-            option2.color = new Color32(0, 0, 0, 255);
-            option3.color = new Color32(0, 0, 0, 255);
+            option1.color = unselectedColor;
+            option2.color = unselectedColor;
+            option3.color = unselectedColor;
 
             switch (selectedOption) //Set the visual indicator for which option you are on.
             {
                 case 1:
-                    option1.color = new Color32(255, 255, 255, 255);
+                    option1.color = selectedColor;
                     pointer.transform.position = new Vector3(POINTERXPOS, option1.transform.position.y);
                     break;
                 case 2:
-                    option2.color = new Color32(255, 255, 255, 255);
+                    option2.color = selectedColor;
                     pointer.transform.position = new Vector3(POINTERXPOS, option2.transform.position.y);
                     break;
                 case 3:
-                    option3.color = new Color32(255, 255, 255, 255);
+                    option3.color = selectedColor;
                     pointer.transform.position = new Vector3(POINTERXPOS, option3.transform.position.y);
                     break;
             }
@@ -92,13 +97,13 @@ public class MenuNavigation : MonoBehaviour
             switch (selectedOption) //Set the visual indicator for which option you are on.
             {
                 case 1:
-                    /*Do option one*/
+                    sceneLoader.SceneLoader(5);
                     break;
                 case 2:
-                    /*Do option two*/
+                    sceneLoader.SceneLoader(1);
                     break;
                 case 3:
-                    /*Do option two*/
+                    sceneLoader.doExitGame();
                     break;
             }
         }
