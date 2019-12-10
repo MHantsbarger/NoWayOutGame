@@ -10,7 +10,7 @@ public class MenuNavigation : MonoBehaviour
     private Color32 selectedColor = new Color32(0, 180, 0, 255);
     private Color32 unselectedColor = new Color32(255, 255, 255, 255);
 
-    public const int POINTERXPOS = 400;
+    // public const int POINTERXPOS = 400;
     public Image pointer;
 
     public Text[] options;
@@ -33,7 +33,7 @@ public class MenuNavigation : MonoBehaviour
         // option2.color = unselectedColor;
         // option3.color = unselectedColor;
 
-        pointer.transform.position = new Vector3(POINTERXPOS, options[0].transform.position.y);
+        pointer.transform.position = new Vector3(pointer.transform.position.x, options[0].transform.position.y);
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class MenuNavigation : MonoBehaviour
                 option.color = unselectedColor;
             }
             options[selectedOption].color = selectedColor;
-            pointer.transform.position = new Vector3(POINTERXPOS, options[selectedOption].transform.position.y);
+            pointer.transform.position = new Vector3(pointer.transform.position.x, options[selectedOption].transform.position.y);
             // option1.color = unselectedColor;
             // option2.color = unselectedColor;
             // option3.color = unselectedColor;
@@ -84,7 +84,7 @@ public class MenuNavigation : MonoBehaviour
                 option.color = unselectedColor;
             }
             options[selectedOption].color = selectedColor;
-            pointer.transform.position = new Vector3(POINTERXPOS, options[selectedOption].transform.position.y);
+            pointer.transform.position = new Vector3(pointer.transform.position.x, options[selectedOption].transform.position.y);
 
             // option1.color = unselectedColor;
             // option2.color = unselectedColor;
