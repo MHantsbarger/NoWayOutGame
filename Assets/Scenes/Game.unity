@@ -1049,6 +1049,11 @@ PrefabInstance:
       propertyPath: walkingSoundVolume
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8463749705080864584, guid: 8b6fd93c8d2ab45fbbd629e80554b581,
+        type: 3}
+      propertyPath: candleSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a37b1237728b8ae4e8a09ef13255bf14, type: 3}
     - target: {fileID: 8463749705080864588, guid: 8b6fd93c8d2ab45fbbd629e80554b581,
         type: 3}
       propertyPath: m_Simulated
