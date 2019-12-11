@@ -110,7 +110,7 @@ public class MenuNavigation : MonoBehaviour
                 levelDifficulty = "Easy";
             }
             else if (options[selectedOption].tag == "MediumDifficulty") {
-                Debug.Log("Hard Difficulty Selected");
+                Debug.Log("Normal Difficulty Selected");
                 levelDifficulty = "Medium";
             }
             else if (options[selectedOption].tag == "HardDifficulty") {
