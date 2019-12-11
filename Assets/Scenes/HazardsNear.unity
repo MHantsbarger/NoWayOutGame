@@ -384,12 +384,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Back
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4477565708729712695, guid: 9d24344f241aab543945b9776a189fb0,
         type: 3}
       propertyPath: m_Text
       value: Skip
-=======
     - target: {fileID: 8310079949215823003, guid: 9d24344f241aab543945b9776a189fb0,
         type: 3}
       propertyPath: m_RootOrder
@@ -414,7 +412,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 100
->>>>>>> 40c828f5256d1b8555f47b1eec4f0d152cdda2ba
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d24344f241aab543945b9776a189fb0, type: 3}
