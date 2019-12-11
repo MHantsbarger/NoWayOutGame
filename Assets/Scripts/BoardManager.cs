@@ -301,8 +301,7 @@ public class BoardManager : MonoBehaviour
     void LayoutTrapsAtRandom(GameObject tile, int minimum, int maximum)
     {
         int objectCount = Random.Range(minimum, maximum + 1);
-        Debug.Log(minimum);
-        Debug.Log(maximum);
+
 
         for (int i = 0; i < objectCount; i++)
         {

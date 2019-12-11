@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class MusicPlayerInGame : MonoBehaviour
 {
+    public static MusicPlayerInGame instance = null;
+    GameObject menuBGM;
+
     void Awake()
     {
-        Destroy(MusicPlayer.Instance.gameObject);
+        menuBGM = GameObject.Find("MenuBGM");
+        if (menuBGM != null)
+        {
+            Destroy(MusicPlayer.instance.gameObject);
+        }
         SetUpSingleton();
     }
 
@@ -16,6 +23,10 @@ public class MusicPlayerInGame : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

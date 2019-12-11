@@ -1,20 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicPlayer : MonoBehaviour
 {
-    private static MusicPlayer instance = null;
-    public static MusicPlayer Instance
-    {
-        get
-        {
-            return instance;
-        }
-    }
+    public static MusicPlayer instance = null;
+    //Scene scene = SceneManager.GetActiveScene();
+    GameObject gameBGM;
 
     void Awake()
     {
+        gameBGM = GameObject.Find("GameBGM");
+        if (gameBGM != null)
+        {
+            Destroy(MusicPlayerInGame.instance.gameObject);
+        }
+
         SetUpSingleton();
     }
 
@@ -29,5 +31,6 @@ public class MusicPlayer : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+
     }
 }
