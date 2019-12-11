@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuNavigation : MonoBehaviour
 {
     public LoadScene sceneLoader;
+    public AudioClip menuNavSound;
+    public AudioClip menuSelectSound;
+    public AudioSource menuSounds;
+    [SerializeField] [Range(0, 1)] float volume = 1f;
+    [SerializeField] [Range(0, 1)] float selectVolume = 1f;
 
     private Color32 selectedColor = new Color32(0, 180, 0, 255);
     private Color32 unselectedColor = new Color32(255, 255, 255, 255);
@@ -14,11 +20,6 @@ public class MenuNavigation : MonoBehaviour
     public Image pointer;
 
     public Text[] options;
-    // public Text option1;
-    // public Text option2;
-    // public Text option3;
-
-    // private int numberOfOptions = 3;
 
     private int selectedOption;
 
@@ -29,9 +30,6 @@ public class MenuNavigation : MonoBehaviour
             option.color = unselectedColor;
         }
         options[0].color = selectedColor;
-        // option1.color = selectedColor;
-        // option2.color = unselectedColor;
-        // option3.color = unselectedColor;
 
         pointer.transform.position = new Vector3(pointer.transform.position.x, options[0].transform.position.y);
     }
@@ -51,25 +49,7 @@ public class MenuNavigation : MonoBehaviour
             }
             options[selectedOption].color = selectedColor;
             pointer.transform.position = new Vector3(pointer.transform.position.x, options[selectedOption].transform.position.y);
-            // option1.color = unselectedColor;
-            // option2.color = unselectedColor;
-            // option3.color = unselectedColor;
-
-            // switch (selectedOption) //Set the visual indicator for which option you are on.
-            // {
-            //     case 1:
-            //         option1.color = selectedColor;
-            //         pointer.transform.position = new Vector3(POINTERXPOS, option1.transform.position.y);
-            //         break;
-            //     case 2:
-            //         option2.color = selectedColor;
-            //         pointer.transform.position = new Vector3(POINTERXPOS, option2.transform.position.y);
-            //         break;
-            //     case 3:
-            //         option3.color = selectedColor;
-            //         pointer.transform.position = new Vector3(POINTERXPOS, option3.transform.position.y);
-            //         break;
-            // }
+            menuSounds.PlayOneShot(menuNavSound, volume);
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow) /*|| Controller input*/)
@@ -85,30 +65,18 @@ public class MenuNavigation : MonoBehaviour
             }
             options[selectedOption].color = selectedColor;
             pointer.transform.position = new Vector3(pointer.transform.position.x, options[selectedOption].transform.position.y);
-
-            // option1.color = unselectedColor;
-            // option2.color = unselectedColor;
-            // option3.color = unselectedColor;
-
-            // switch (selectedOption) //Set the visual indicator for which option you are on.
-            // {
-            //     case 1:
-            //         option1.color = selectedColor;
-            //         pointer.transform.position = new Vector3(POINTERXPOS, option1.transform.position.y);
-            //         break;
-            //     case 2:
-            //         option2.color = selectedColor;
-            //         pointer.transform.position = new Vector3(POINTERXPOS, option2.transform.position.y);
-            //         break;
-            //     case 3:
-            //         option3.color = selectedColor;
-            //         pointer.transform.position = new Vector3(POINTERXPOS, option3.transform.position.y);
-            //         break;
-            // }
+            menuSounds.PlayOneShot(menuNavSound, volume);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) ||  Input.GetKeyDown("joystick button 0")){
-            Debug.Log("Picked: " + selectedOption); //For testing as the switch statment does nothing right now.
+            // Debug.Log("Picked: " + selectedOption); //For testing as the switch statment does nothing right now.
+            menuSounds.PlayOneShot(menuSelectSound, selectVolume);
+            StartCoroutine(MenuOptionSceneChange());
+            
+        }
+    }
+    IEnumerator MenuOptionSceneChange() {
+            yield return new WaitForSeconds(0.3f);
             if (options[selectedOption].tag == "StartOption") {
                 sceneLoader.SceneLoader(6);
             }
@@ -133,18 +101,5 @@ public class MenuNavigation : MonoBehaviour
             else if (options[selectedOption].tag == "QuitOption") {
                 sceneLoader.doExitGame();
             }
-            // switch (selectedOption) //Set the visual indicator for which option you are on.
-            // {
-            //     case 0:
-            //         sceneLoader.SceneLoader(5);
-            //         break;
-            //     case 1:
-            //         sceneLoader.SceneLoader(1);
-            //         break;
-            //     case 2:
-            //         sceneLoader.doExitGame();
-            //         break;
-            // }
         }
-    }
 }
