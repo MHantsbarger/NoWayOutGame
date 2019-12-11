@@ -16,6 +16,10 @@ TagManager:
   - AvoidHazardsOption
   - HazardsNearOption
   - CandleOption
+  - EasyDifficulty
+  - MediumDificulty
+  - HardDifficulty
+  - SettingsOption
   layers:
   - Default
   - TransparentFX

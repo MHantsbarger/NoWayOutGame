@@ -39,24 +39,24 @@ public class BoardManager : MonoBehaviour
     {
         boardHolder = new GameObject("Board").transform;
 
-        //for (int x = 0; x < cols; x++)
-        //{
-        //   for (int y = 0; y < rows; y++)
-        //   {
+        for (int x = 0; x < cols; x++)
+        {
+          for (int y = 0; y < rows; y++)
+          {
 
-        //       if (x <= 2 && y <= 1)
-        //       {
-        //           continue;
-        //       }
+              if (x <= 2 && y <= 1)
+              {
+                  continue;
+              }
 
-        //       GameObject toInstantiate = fogTile;
+              GameObject toInstantiate = fogTile;
 
-        //       GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0), Quaternion.identity);
+              GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0), Quaternion.identity);
 
-        //       instance.transform.SetParent(boardHolder);
+              instance.transform.SetParent(boardHolder);
 
-        //   }
-        //}
+          }
+        }
     }
 
     //Clears our list gridPositions and prepares it to generate a new board.
@@ -331,7 +331,21 @@ public class BoardManager : MonoBehaviour
         Instantiate(home, homePosition, Quaternion.identity);
 
         InitialiseList(homePosition);
-
+        if (MenuNavigation.levelDifficulty == "Easy") {
+            Debug.Log("Easy Difficulty Confirmed");
+            trapCount = new Count(7, 9);
+            treeCount = new Count(2, 3);
+        }
+        else if (MenuNavigation.levelDifficulty == "Hard") {
+            Debug.Log("Hard Difficulty Confirmed");
+            trapCount = new Count(20, 25);
+            treeCount = new Count(5, 6);
+        }
+        else {
+            Debug.Log("Normal Difficulty Confirmed");
+            trapCount = new Count(10, 15);
+            treeCount = new Count(2, 3);
+        }
         LayoutTreesAtRandom(treeTile, treeCount.min, treeCount.max);
 
         LayoutTrapsAtRandom(trapTile, trapCount.min, trapCount.max);

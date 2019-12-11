@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MenuNavigation : MonoBehaviour
 {
+    public static string levelDifficulty = "Normal";
     public LoadScene sceneLoader;
     public AudioClip menuNavSound;
     public AudioClip menuSelectSound;
@@ -100,6 +101,21 @@ public class MenuNavigation : MonoBehaviour
             }
             else if (options[selectedOption].tag == "QuitOption") {
                 sceneLoader.doExitGame();
+            }
+            else if (options[selectedOption].tag == "SettingsOption") {
+                sceneLoader.SceneLoader(7);
+            }
+            else if (options[selectedOption].tag == "EasyDifficulty") {
+                Debug.Log("Easy Difficulty Selected");
+                levelDifficulty = "Easy";
+            }
+            else if (options[selectedOption].tag == "MediumDifficulty") {
+                Debug.Log("Hard Difficulty Selected");
+                levelDifficulty = "Medium";
+            }
+            else if (options[selectedOption].tag == "HardDifficulty") {
+                Debug.Log("Hard Difficulty Selected");
+                levelDifficulty = "Hard";
             }
         }
 }
