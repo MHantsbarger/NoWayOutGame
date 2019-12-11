@@ -120,4 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42869f182fd1b4c4591c3b5458d61116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prompts: {fileID: 0}
+  victoryMusic: {fileID: 8300000, guid: ff090f2e75224456188fc0a6a58157a0, type: 3}
+  volume: 1
+  bgm: {fileID: 0}
