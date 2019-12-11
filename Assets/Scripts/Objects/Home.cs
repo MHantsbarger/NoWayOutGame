@@ -6,11 +6,20 @@ using UnityEngine.UI;
 public class Home : MonoBehaviour
 {
     // public Text enterHome;
-    public AudioClip victoryMusic;
-    [SerializeField] [Range(0, 1)] float volume = 1f;
+    //public AudioClip victoryMusic;
+    //[SerializeField] [Range(0, 1)] float volume = 1f;
+
+    AudioSource bgm;
+
+    private void Awake()
+    {
+        bgm = GetComponent<AudioSource>();
+        bgm.Stop();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         GameObject player = collision.gameObject;
 
         if (player.CompareTag("Player"))
@@ -25,12 +34,13 @@ public class Home : MonoBehaviour
         playerController.SetMovementControl(false);
         Animator animatorObject = player.GetComponent<Animator>();
         animatorObject.SetTrigger("FoundHome");
+
         GameObject bgmObject = GameObject.Find("GameBGM");
-        AudioSource bgm = bgmObject.GetComponent<AudioSource>();
-        bgm.Stop();
-        bgm.clip = victoryMusic;
-        bgm.Play();
-        // bgm.Play();
+        if (bgmObject != null)
+        {
+            Destroy(bgmObject);
+            bgm.Play();
+        }
         yield return new WaitForSeconds(1.5f);
         GameManager.instance.YouWin();
         // SceneManager.LoadScene("StartScreen", LoadSceneMode.Single);
