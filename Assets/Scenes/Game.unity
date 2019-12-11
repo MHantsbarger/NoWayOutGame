@@ -830,6 +830,26 @@ PrefabInstance:
       propertyPath: sceneLoader
       value: 
       objectReference: {fileID: 833169160}
+    - target: {fileID: 8310079949215823003, guid: 9d24344f241aab543945b9776a189fb0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310079949215823003, guid: 9d24344f241aab543945b9776a189fb0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -58.59375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310079949215823003, guid: 9d24344f241aab543945b9776a189fb0,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310079949215823003, guid: 9d24344f241aab543945b9776a189fb0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4477565708152651314, guid: 9d24344f241aab543945b9776a189fb0,
         type: 3}
       propertyPath: m_TagString
@@ -1039,6 +1059,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1465742892383778489, guid: 39c6a20e23f314e17ab3eab9b3d64b6c,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e8b00e27318e387448c4deaa0ac1f078, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39c6a20e23f314e17ab3eab9b3d64b6c, type: 3}
 --- !u!224 &1365192347 stripped
