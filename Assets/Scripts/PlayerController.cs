@@ -15,6 +15,8 @@ public class PlayerController : MovingObject
 
     [SerializeField] AudioClip walkingSound;
     [SerializeField] [Range(0, 1)] float walkingSoundVolume = 1f;
+    [SerializeField] AudioClip candleSound;
+    [SerializeField] [Range(0, 1)] float candleSoundVolume = 1f;
 
     protected override void Start()
     {
@@ -64,6 +66,7 @@ public class PlayerController : MovingObject
             candle.enabled = true;
             FindObjectOfType<Candles>().removeCandle();
             candleAmount -= 1;
+            AudioSource.PlayClipAtPoint(candleSound, transform.position, candleSoundVolume);
         }
     }
 
