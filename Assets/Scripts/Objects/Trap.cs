@@ -17,11 +17,7 @@ public class Trap : MonoBehaviour
     {
         bubble = GameObject.Find("Bubble").GetComponent<Image>();
     }
-    public void Update()
-    {
 
-
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

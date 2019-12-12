@@ -9,7 +9,7 @@ public class PlayerController : MovingObject
 {
     private const int DEFAULTCANDLENUM = 3;
     private bool m_isAxisInUse = false;
-    private CircleCollider2D candle;
+    private BoxCollider2D candle;
     [HideInInspector] public int candleAmount = DEFAULTCANDLENUM;
     [HideInInspector] public bool movementControl;
     //[HideInInspector] public float flowerAmount = 0;
@@ -26,7 +26,7 @@ public class PlayerController : MovingObject
     protected override void Start()
     {
         enabled = true;
-        candle = GameObject.Find("CandleTrigger").GetComponent<CircleCollider2D>();
+        candle = GameObject.Find("CandleTrigger").GetComponent<BoxCollider2D>();
         movementControl = true;
         base.Start();
     }
@@ -69,6 +69,7 @@ public class PlayerController : MovingObject
         }
         if (movementControl && Input.GetKeyDown(KeyCode.Space) && candleAmount > 0) {
             candle.enabled = true;
+            Debug.Log(1);
             FindObjectOfType<Candles>().removeCandle();
             candleAmount -= 1;
             AudioSource.PlayClipAtPoint(candleSound, transform.position, candleSoundVolume);
