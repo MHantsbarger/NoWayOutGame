@@ -3364,7 +3364,7 @@ PrefabInstance:
     - target: {fileID: 4477565708152651314, guid: 9d24344f241aab543945b9776a189fb0,
         type: 3}
       propertyPath: m_TagString
-      value: SettingsOption
+      value: CreditsOption
       objectReference: {fileID: 0}
     - target: {fileID: 4477565707199655574, guid: 9d24344f241aab543945b9776a189fb0,
         type: 3}

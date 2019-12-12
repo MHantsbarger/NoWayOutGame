@@ -20,6 +20,7 @@ TagManager:
   - HardDifficulty
   - SettingsOption
   - MediumDifficulty
+  - CreditsOption
   layers:
   - Default
   - TransparentFX

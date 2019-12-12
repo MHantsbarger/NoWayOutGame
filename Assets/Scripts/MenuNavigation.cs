@@ -113,6 +113,9 @@ public class MenuNavigation : MonoBehaviour
             else if (options[selectedOption].tag == "SettingsOption") {
                 sceneLoader.SceneLoader(7);
             }
+            else if (options[selectedOption].tag == "CreditsOption") {
+                sceneLoader.SceneLoader(8);
+            }
             else if (options[selectedOption].tag == "EasyDifficulty") {
                 difficultyText.text = "Easy";
                 difficultyText.color = easyColor;
