@@ -260,7 +260,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218084162}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62b28c7802920ce4f9e0400fe0cb2d71, type: 3}
   m_Name: 
@@ -1029,6 +1029,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5052443626405327498, guid: 8b6fd93c8d2ab45fbbd629e80554b581,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8463749705080864589, guid: 8b6fd93c8d2ab45fbbd629e80554b581,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1093,11 +1098,6 @@ PrefabInstance:
         type: 3}
       propertyPath: TrapInitialPosX
       value: -33
-      objectReference: {fileID: 0}
-    - target: {fileID: 5052443626405327498, guid: 8b6fd93c8d2ab45fbbd629e80554b581,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2378246276861395875, guid: 8b6fd93c8d2ab45fbbd629e80554b581,
         type: 3}
