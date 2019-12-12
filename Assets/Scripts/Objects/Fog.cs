@@ -37,7 +37,7 @@ public class Fog : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnTriggerStay2D(Collider2D collision) {
-        gameObject.SetActive(false);
-    }
+    // private void OnTriggerStay2D(Collider2D collision) {
+    //     gameObject.SetActive(false);
+    // }
 }
