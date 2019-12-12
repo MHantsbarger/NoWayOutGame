@@ -34,7 +34,11 @@ public class Home : MonoBehaviour
         playerController.SetMovementControl(false);
         Animator animatorObject = player.GetComponent<Animator>();
         animatorObject.SetTrigger("FoundHome");
-
+        GameObject bubble = GameObject.Find("Bubble");
+        if (bubble != null)
+        {   
+            bubble.SetActive(false);
+        }
         GameObject bgmObject = GameObject.Find("GameBGM");
         if (bgmObject != null)
         {

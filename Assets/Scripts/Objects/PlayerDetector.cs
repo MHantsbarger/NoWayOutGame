@@ -28,6 +28,11 @@ public class PlayerDetector : MonoBehaviour
         playerController.SetMovementControl(false);
         Animator animatorObject = player.GetComponent<Animator>();
         animatorObject.SetTrigger("Skeletonized");
+        GameObject bubble = GameObject.Find("Bubble");
+        if (bubble != null)
+        {   
+            bubble.SetActive(false);
+        }
         yield return new WaitForSeconds(1.5f);
         GameManager.instance.GameOver();
         // SceneManager.LoadScene("StartScreen", LoadSceneMode.Single);
