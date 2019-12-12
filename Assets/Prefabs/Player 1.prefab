@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 8463749705080864588}
   - component: {fileID: 8468599431888560152}
   - component: {fileID: 7422601623127268070}
+  - component: {fileID: -6310307132383332060}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -150,6 +151,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   animator: {fileID: 7422601623127268070}
+  candleAmount: 3
+  movementControl: 0
+  walkingSound: {fileID: 8300000, guid: 2eaf771d397cb47a399cf09be277d2ef, type: 3}
+  walkingSoundVolume: 0.2
+  candleSound: {fileID: 8300000, guid: a37b1237728b8ae4e8a09ef13255bf14, type: 3}
+  candleSoundVolume: 1
+  FlowerInitialPosX: -30
+  TrapInitialPosX: -30
 --- !u!50 &8463749705080864588
 Rigidbody2D:
   serializedVersion: 4
@@ -216,3 +225,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6310307132383332060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463749705080864585}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a09be5d22564480b3f631d125720ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapAmount: 0
+  flowerAmount: 0
+  Trap: {fileID: 5983218899397076462, guid: 4085a1f2df13a4374806175a9a458ae4, type: 3}
+  Flower: {fileID: 5207712770586908696, guid: faa81ebfdfc514423bfef9492d908465, type: 3}

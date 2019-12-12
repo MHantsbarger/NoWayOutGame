@@ -10,13 +10,18 @@ public class PlayerController : MovingObject
     private const int DEFAULTCANDLENUM = 3;
     private bool m_isAxisInUse = false;
     private CircleCollider2D candle;
-    public int candleAmount = DEFAULTCANDLENUM;
-    public bool movementControl;
+    [HideInInspector] public int candleAmount = DEFAULTCANDLENUM;
+    [HideInInspector] public bool movementControl;
+    //[HideInInspector] public float flowerAmount = 0;
+    //[HideInInspector] public float trapAmount = 0;
 
     [SerializeField] AudioClip walkingSound;
     [SerializeField] [Range(0, 1)] float walkingSoundVolume = 1f;
     [SerializeField] AudioClip candleSound;
     [SerializeField] [Range(0, 1)] float candleSoundVolume = 1f;
+
+    public float FlowerInitialPosX = -33f;    
+    public float TrapInitialPosX = -33f;
 
     protected override void Start()
     {

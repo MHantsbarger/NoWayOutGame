@@ -202,9 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b43e2ad2c9384249985d2c79904ce8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prompts: {fileID: 872004801473021164, guid: 7c7c8515b639a426db6e8f81b8547e34, type: 3}
-  sound: {fileID: 8300000, guid: 7aefb1cadce7147808d6e56e07413a5d, type: 3}
-  volume: 1
+  flower: {fileID: 5207712770586908696, guid: faa81ebfdfc514423bfef9492d908465, type: 3}
 --- !u!1001 &781441319008143552
 PrefabInstance:
   m_ObjectHideFlags: 0
