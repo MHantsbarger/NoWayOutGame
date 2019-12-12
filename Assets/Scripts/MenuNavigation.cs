@@ -14,6 +14,7 @@ public class MenuNavigation : MonoBehaviour
     [SerializeField] [Range(0, 1)] float volume = 1f;
     [SerializeField] [Range(0, 1)] float selectVolume = 1f;
 
+    private bool controlEnabled = true;
     private Color32 selectedColor = new Color32(0, 180, 0, 255);
     private Color32 unselectedColor = new Color32(255, 255, 255, 255);
 
@@ -37,7 +38,7 @@ public class MenuNavigation : MonoBehaviour
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown(KeyCode.DownArrow) /*|| Controller input*/)
+        if (Input.GetKeyDown(KeyCode.DownArrow) && controlEnabled == true/*|| Controller input*/)
         { //Input telling it to go up or down.
             selectedOption += 1;
             if (selectedOption >= options.Length) //If at end of list go back to top
@@ -53,7 +54,7 @@ public class MenuNavigation : MonoBehaviour
             menuSounds.PlayOneShot(menuNavSound, volume);
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) /*|| Controller input*/)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && controlEnabled == true/*|| Controller input*/)
         { //Input telling it to go up or down.
             selectedOption -= 1;
             if (selectedOption < 0) //If at end of list go back to top
@@ -69,7 +70,8 @@ public class MenuNavigation : MonoBehaviour
             menuSounds.PlayOneShot(menuNavSound, volume);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) ||  Input.GetKeyDown("joystick button 0")){
+        if (controlEnabled == true && (Input.GetKeyDown(KeyCode.Space) ||  Input.GetKeyDown("joystick button 0"))){
+            controlEnabled = false;
             // Debug.Log("Picked: " + selectedOption); //For testing as the switch statment does nothing right now.
             menuSounds.PlayOneShot(menuSelectSound, selectVolume);
             StartCoroutine(MenuOptionSceneChange());
@@ -117,5 +119,6 @@ public class MenuNavigation : MonoBehaviour
                 Debug.Log("Hard Difficulty Selected");
                 levelDifficulty = "Hard";
             }
+            controlEnabled = true;
         }
 }
