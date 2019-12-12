@@ -13,10 +13,15 @@ public class MenuNavigation : MonoBehaviour
     public AudioSource menuSounds;
     [SerializeField] [Range(0, 1)] float volume = 1f;
     [SerializeField] [Range(0, 1)] float selectVolume = 1f;
+    public Text difficultyText;
 
     private bool controlEnabled = true;
     private Color32 selectedColor = new Color32(0, 180, 0, 255);
     private Color32 unselectedColor = new Color32(255, 255, 255, 255);
+    private Color32 clickedColor = new Color32(0, 255, 0, 255);
+    private Color32 easyColor = new Color32(0, 180, 0, 255);
+    private Color32 normalColor = new Color32(180, 180, 0, 255);
+    private Color32 hardColor = new Color32(180, 0, 0, 255);
 
     // public const int POINTERXPOS = 400;
     public Image pointer;
@@ -74,6 +79,7 @@ public class MenuNavigation : MonoBehaviour
             controlEnabled = false;
             // Debug.Log("Picked: " + selectedOption); //For testing as the switch statment does nothing right now.
             menuSounds.PlayOneShot(menuSelectSound, selectVolume);
+            options[selectedOption].color = clickedColor;
             StartCoroutine(MenuOptionSceneChange());
             
         }
@@ -108,17 +114,21 @@ public class MenuNavigation : MonoBehaviour
                 sceneLoader.SceneLoader(7);
             }
             else if (options[selectedOption].tag == "EasyDifficulty") {
-                Debug.Log("Easy Difficulty Selected");
+                difficultyText.text = "Easy";
+                difficultyText.color = easyColor;
                 levelDifficulty = "Easy";
             }
             else if (options[selectedOption].tag == "MediumDifficulty") {
-                Debug.Log("Normal Difficulty Selected");
+                difficultyText.text = "Normal";
+                difficultyText.color = normalColor;
                 levelDifficulty = "Medium";
             }
             else if (options[selectedOption].tag == "HardDifficulty") {
-                Debug.Log("Hard Difficulty Selected");
+                difficultyText.text = "Hard";
+                difficultyText.color = hardColor;
                 levelDifficulty = "Hard";
             }
             controlEnabled = true;
+            options[selectedOption].color = selectedColor;
         }
 }
