@@ -21,37 +21,38 @@ public class Trap : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             bubble.enabled = true;
-            temp = (Image)Instantiate(trap);
-            temp.GetComponent<Transform>().SetParent(GameObject.Find("Bubble").GetComponent<Transform>(), true);
-            temp.transform.position = GameObject.Find("Bubble").GetComponent<Transform>().position + 
-                new Vector3(GameObject.Find("Player 1").GetComponent<PlayerController>().TrapInitialPosX, 10, 0);
-            GameObject.Find("Player 1").GetComponent<PlayerController>().TrapInitialPosX += 35;
-
+            //temp = (Image)Instantiate(trap);
+            //temp.GetComponent<Transform>().SetParent(GameObject.Find("Bubble").GetComponent<Transform>(), true);
+            //temp.transform.position = GameObject.Find("Bubble").GetComponent<Transform>().position + 
+            //    new Vector3(GameObject.Find("Player 1").GetComponent<PlayerController>().TrapInitialPosX, 10, 0);
+            //GameObject.Find("Player 1").GetComponent<PlayerController>().TrapInitialPosX += 35;
+            BubbleManager.instance.trapAmount++;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         bubble.enabled = false;
-        GameObject.Find("Player 1").GetComponent<PlayerController>().TrapInitialPosX = -33;
-        List<GameObject> trapicon = sameName("TrapIcon(Clone)");
-        foreach (GameObject go in trapicon)
-        {
-            Destroy(go);
-        }
-        Destroy(temp);
+        //GameObject.Find("Player 1").GetComponent<PlayerController>().TrapInitialPosX = -33;
+        //List<GameObject> trapicon = sameName("TrapIcon(Clone)");
+        //foreach (GameObject go in trapicon)
+        //{
+        //    Destroy(go);
+        //}
+        //Destroy(temp);
+        BubbleManager.instance.trapAmount = 0;
     }
-    private List<GameObject> sameName(string iconName)
-    {
-        List<GameObject> obj = new List<GameObject>();
-        foreach (GameObject go in FindObjectsOfType(typeof(GameObject)))
-        {
+    //private List<GameObject> sameName(string iconName)
+    //{
+    //    List<GameObject> obj = new List<GameObject>();
+    //    foreach (GameObject go in FindObjectsOfType(typeof(GameObject)))
+    //    {
 
-            if (go.name == iconName)
-            {
-                obj.Add(go);
-            }
-        }
-        return obj;
-    }
+    //        if (go.name == iconName)
+    //        {
+    //            obj.Add(go);
+    //        }
+    //    }
+    //    return obj;
+    //}
 }

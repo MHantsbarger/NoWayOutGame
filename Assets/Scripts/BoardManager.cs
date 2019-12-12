@@ -40,23 +40,23 @@ public class BoardManager : MonoBehaviour
         boardHolder = new GameObject("Board").transform;
         int fogIndex = 0;
 
-         for (int x = 0; x < cols; x++)
-         {
-            for (int y = 0; y < rows; y++)
-            {
+         //for (int x = 0; x < cols; x++)
+         //{
+         //   for (int y = 0; y < rows; y++)
+         //   {
 
-                if (x <= 2 && y <= 1)
-                {
-                    continue;
-                }
-                GameObject toInstantiate = fogTile[fogIndex++];
+         //       if (x <= 2 && y <= 1)
+         //       {
+         //           continue;
+         //       }
+         //       GameObject toInstantiate = fogTile[fogIndex++];
 
-                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0), Quaternion.identity);
+         //       GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0), Quaternion.identity);
 
-                instance.transform.SetParent(boardHolder);
+         //       instance.transform.SetParent(boardHolder);
 
-           }
-         }
+         //  }
+         //}
     }
 
     //Clears our list gridPositions and prepares it to generate a new board.
