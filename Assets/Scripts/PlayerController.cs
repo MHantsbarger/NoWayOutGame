@@ -66,7 +66,7 @@ public class PlayerController : MovingObject
             GameManager.instance.playersTurn = false;
             Move(horizontal, vertical);
         }
-        if (movementControl && Input.GetKeyDown(KeyCode.Space) && candleAmount > 0) {
+        if (Input.GetKeyDown(KeyCode.Space) && candleAmount > 0) {
             candle.enabled = true;
             FindObjectOfType<Candles>().removeCandle();
             candleAmount -= 1;
