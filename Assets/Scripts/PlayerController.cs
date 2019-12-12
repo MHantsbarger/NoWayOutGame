@@ -17,10 +17,7 @@ public class PlayerController : MovingObject
     [SerializeField] [Range(0, 1)] float walkingSoundVolume = 1f;
     [SerializeField] AudioClip candleSound;
     [SerializeField] [Range(0, 1)] float candleSoundVolume = 1f;
-
-    //public float FlowerInitialPosX = -33f;    
-    //public float TrapInitialPosX = -33f;
-
+    
     protected override void Start()
     {
         enabled = true;
