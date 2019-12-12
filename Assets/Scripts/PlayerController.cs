@@ -66,17 +66,23 @@ public class PlayerController : MovingObject
             GameManager.instance.playersTurn = false;
             Move(horizontal, vertical);
         }
-        if (Input.GetKeyDown(KeyCode.Space) && candleAmount > 0) {
-            candle.enabled = true;
+        if (movementControl && Input.GetKeyDown(KeyCode.Space) && candleAmount > 0) {
+            //candle.enabled = true;
             FindObjectOfType<Candles>().removeCandle();
-            candleAmount -= 1;
             AudioSource.PlayClipAtPoint(candleSound, transform.position, candleSoundVolume);
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("Fog"))
+            {
+                if (go.GetComponent<Fog>().preToDie) {
+                    go.SetActive(false);
+                }
+            }
+            candleAmount -= 1;
         }
     }
 
     protected override void Move(int x, int y)
     {
-        candle.enabled = false;
+        //candle.enabled = false;
         GameManager.instance.playersTurn = false;
         base.Move(x, y);
         AudioSource.PlayClipAtPoint(walkingSound, transform.position, walkingSoundVolume);

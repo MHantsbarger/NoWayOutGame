@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Fog : MonoBehaviour
 {
+    public bool preToDie = false;
     //private SpriteRenderer fogSpriteRenderer;
     //private Color transparent = new Color(0.0f, 0.0f, 0.0f, 0.0f);
     //private Color foggy = new Color(0.0f, 0.0f, 0.0f, 0.5f);
@@ -34,10 +35,22 @@ public class Fog : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameObject.SetActive(false);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            gameObject.SetActive(false);
+        }
+        else {
+            preToDie = true;
+        }
+        
     }
 
-    // private void OnTriggerStay2D(Collider2D collision) {
-    //     gameObject.SetActive(false);
-    // }
+
+    
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        preToDie = false;
+    }
+
+   
 }
