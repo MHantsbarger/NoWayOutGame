@@ -6,9 +6,6 @@ using UnityEngine.UI;
 public class Flower : MonoBehaviour
 {
 
-    //public Text prompts;
-    //private float amount = 0;
-    //private float currentAmount = 0;
     public Image flower;
     private Image bubble;
     private Image temp;
@@ -17,11 +14,7 @@ public class Flower : MonoBehaviour
     {
         bubble = GameObject.Find("Bubble").GetComponent<Image>();
     }
-    public void Update()
-    {
 
-
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

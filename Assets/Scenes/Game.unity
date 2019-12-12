@@ -1094,6 +1094,11 @@ PrefabInstance:
       propertyPath: TrapInitialPosX
       value: -33
       objectReference: {fileID: 0}
+    - target: {fileID: 5052443626405327498, guid: 8b6fd93c8d2ab45fbbd629e80554b581,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2378246276861395875, guid: 8b6fd93c8d2ab45fbbd629e80554b581,
         type: 3}
       propertyPath: m_IsTrigger
