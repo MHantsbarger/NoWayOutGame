@@ -12,15 +12,15 @@ public class GameManager : MonoBehaviour
 
     private Text tempText;
 
-    public GameObject winLoseWindow;
-    public Text winLoseText;
+    private GameObject winLoseWindow;
+    private Text winLoseText;
 
     // 能让外部访问这个类的这个变量
     public static GameManager instance = null;
 
     [HideInInspector] public BoardManager boardScript;
 
-    [HideInInspector] public bool playersTurn = true; //HideInInspector: Although the variable is public, it won't be displayed in editor
+    [HideInInspector] public bool playersTurn = true;
 
     // Start is called before the first frame update
     void Awake()
