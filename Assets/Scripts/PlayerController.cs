@@ -68,7 +68,7 @@ public class PlayerController : MovingObject
             Move(horizontal, vertical);
         }
         if (GameManager.instance.playersTurn && movementControl && Input.GetKeyDown(KeyCode.Space) && candleAmount > 0) {
-            candle.enabled = true;
+            //candle.enabled = true;
             Debug.Log(1);
             FindObjectOfType<Candles>().removeCandle();
             candleAmount -= 1;
@@ -78,7 +78,7 @@ public class PlayerController : MovingObject
 
     protected override void Move(int x, int y)
     {
-        candle.enabled = false;
+        //candle.enabled = false;
         GameManager.instance.playersTurn = false;
         base.Move(x, y);
         AudioSource.PlayClipAtPoint(walkingSound, transform.position, walkingSoundVolume);
