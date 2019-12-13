@@ -37,7 +37,21 @@ public class MenuNavigation : MonoBehaviour
             option.color = unselectedColor;
         }
         options[0].color = selectedColor;
-
+        if (difficultyText != null)
+        {   
+            if (levelDifficulty == "Easy") {
+                difficultyText.text = "Easy";
+                difficultyText.color = easyColor;
+            }
+            else if (levelDifficulty == "Hard") {
+                difficultyText.text = "Hard";
+                difficultyText.color = hardColor;
+            }
+            else {
+                difficultyText.text = "Normal";
+                difficultyText.color = normalColor;
+            }
+        }
         pointer.transform.position = new Vector3(pointer.transform.position.x, options[0].transform.position.y);
     }
 
