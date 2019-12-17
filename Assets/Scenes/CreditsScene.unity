@@ -577,7 +577,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd9bec0f853ed1e498f3a9c6532bbb84, type: 3}
-    m_FontSize: 24
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -588,13 +588,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Menu Music from Pokemon Red and Blue\n\nGame Music from https://filmmusic.io\r\n\"8bit
-    Dungeon Level\" by Kevin MacLeod (https://incompetech.com)\r\nLicense: CC BY (http://creativecommons.org/licenses/by/4.0/)\n\nVictory
-    Music Classy 8-Bit by Eric Matyas (www.soundimage.org)\n\nMenu Sounds by Electrodynamics
-    (https://assetstore.unity.com/publishers/1597)\n\nThis game uses these sounds
-    from freesound:\nChewing, Breadstick by InspectorJ  (https://freesound.org/people/InspectorJ)\nBubbles,
+  m_Text: "Menu Music is Drafty Places by Eric Matyas (www.soundimage.org)\n\nVictory
+    Music is Classy 8-Bit by Eric Matyas (www.soundimage.org)\n\nGame Music from https://filmmusic.io\r\n\"8bit
+    Dungeon Level\" by Kevin MacLeod (https://incompetech.com)\r\nLicense: CC BY (http://creativecommons.org/licenses/by/4.0/)\n\nMenu
+    Sounds by Electrodynamics (https://assetstore.unity.com/publishers/1597)\n\nThis
+    game uses these sounds from freesound:\nChewing, Breadstick by InspectorJ  (https://freesound.org/people/InspectorJ)\nBubbles,
     Long by murraysortz (https://freesound.org/people/murraysortz)\nGrass Steps by
-    sunboy (https://freesound.org/people/sunboy)"
+    sunboy (https://freesound.org/people/sunboy)\n\nMenu Font is dpcomic by codeman38
+    (http://www.zone38.net/)"
 --- !u!222 &987745665
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1086,6 +1087,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuScroll
       objectReference: {fileID: 0}
+    - target: {fileID: 4477565707199655574, guid: 9d24344f241aab543945b9776a189fb0,
+        type: 3}
+      propertyPath: m_Text
+      value: Next
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477565708152651327, guid: 9d24344f241aab543945b9776a189fb0,
+        type: 3}
+      propertyPath: m_Text
+      value: Back
+      objectReference: {fileID: 0}
     - target: {fileID: 4477565708729712695, guid: 9d24344f241aab543945b9776a189fb0,
         type: 3}
       propertyPath: m_Text
@@ -1186,6 +1197,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4477565707199655572, guid: 9d24344f241aab543945b9776a189fb0,
+        type: 3}
+      propertyPath: m_TagString
+      value: HomeGoalOption
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477565707199655572, guid: 9d24344f241aab543945b9776a189fb0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4477565708152651314, guid: 9d24344f241aab543945b9776a189fb0,
         type: 3}
       propertyPath: m_IsActive
@@ -1195,6 +1216,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: MainMenuOption
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477565708152366900, guid: 9d24344f241aab543945b9776a189fb0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 4477565708729712693, guid: 9d24344f241aab543945b9776a189fb0,
         type: 3}
@@ -1205,31 +1231,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: MainMenuOption
-      objectReference: {fileID: 0}
-    - target: {fileID: 4477565707199655574, guid: 9d24344f241aab543945b9776a189fb0,
-        type: 3}
-      propertyPath: m_Text
-      value: Next
-      objectReference: {fileID: 0}
-    - target: {fileID: 4477565708152651327, guid: 9d24344f241aab543945b9776a189fb0,
-        type: 3}
-      propertyPath: m_Text
-      value: Back
-      objectReference: {fileID: 0}
-    - target: {fileID: 4477565708152366900, guid: 9d24344f241aab543945b9776a189fb0,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4477565707199655572, guid: 9d24344f241aab543945b9776a189fb0,
-        type: 3}
-      propertyPath: m_TagString
-      value: HomeGoalOption
-      objectReference: {fileID: 0}
-    - target: {fileID: 4477565707199655572, guid: 9d24344f241aab543945b9776a189fb0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d24344f241aab543945b9776a189fb0, type: 3}

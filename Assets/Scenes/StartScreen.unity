@@ -3241,6 +3241,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuScroll
       objectReference: {fileID: 0}
+    - target: {fileID: 4477565707199655574, guid: 9d24344f241aab543945b9776a189fb0,
+        type: 3}
+      propertyPath: m_Text
+      value: Change Difficulty
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477565708152651327, guid: 9d24344f241aab543945b9776a189fb0,
+        type: 3}
+      propertyPath: m_Text
+      value: Credits
+      objectReference: {fileID: 0}
     - target: {fileID: 4477565707643406560, guid: 9d24344f241aab543945b9776a189fb0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3365,16 +3375,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: CreditsOption
-      objectReference: {fileID: 0}
-    - target: {fileID: 4477565707199655574, guid: 9d24344f241aab543945b9776a189fb0,
-        type: 3}
-      propertyPath: m_Text
-      value: Change Difficulty
-      objectReference: {fileID: 0}
-    - target: {fileID: 4477565708152651327, guid: 9d24344f241aab543945b9776a189fb0,
-        type: 3}
-      propertyPath: m_Text
-      value: Credits
       objectReference: {fileID: 0}
     - target: {fileID: 4477565707199655575, guid: 9d24344f241aab543945b9776a189fb0,
         type: 3}
